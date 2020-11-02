@@ -120,66 +120,75 @@ public class calController {
     @FXML
     private Button equalsButton;
 
+    private Operation currentOperation;
+
     @FXML
     void _0ButtonClick(ActionEvent event) {
-
+        inputField.appendText("0");
     }
 
     @FXML
     void _1ButtonClick(ActionEvent event) {
-
+        inputField.appendText("1");
     }
 
     @FXML
     void _2ButtonClick(ActionEvent event) {
-
+        inputField.appendText("2");
     }
 
     @FXML
     void _3ButtonClick(ActionEvent event) {
-
+        inputField.appendText("3");
     }
 
     @FXML
     void _4ButtonClick(ActionEvent event) {
-
+        inputField.appendText("4");
     }
 
     @FXML
     void _5ButtonClick(ActionEvent event) {
-
+        inputField.appendText("5");
     }
 
     @FXML
     void _6ButtonClick(ActionEvent event) {
-
+        inputField.appendText("6");
     }
 
     @FXML
     void _7ButtonClick(ActionEvent event) {
-
+        inputField.appendText("7");
     }
 
     @FXML
     void _8ButtonClick(ActionEvent event) {
-
+        inputField.appendText("8");
     }
 
     @FXML
     void _9ButtonClick(ActionEvent event) {
-
+        inputField.appendText("9");
     }
 
     @FXML
     void acButtonClick(ActionEvent event) {
         enablePointButton();
-
+        inputField.clear();
     }
 
     @FXML
     void addButtonClick(ActionEvent event) {
         enablePointButton();
+        String firstNum = inputField.getText();
+        if (firstNum.isEmpty()) {
+            return;
+        }
 
+        currentOperation = Operation.ADD;
+
+        inputField.appendText(" + ");
     }
 
     @FXML
@@ -207,6 +216,13 @@ public class calController {
     void equalsButtonClick(ActionEvent event) {
         enablePointButton();
 
+        switch (currentOperation) {
+            case ADD:
+                inputField.setText(Double.toString(computeAnswer(Operation.ADD)));
+            case SUBTRACT:
+            case MULTIPLY:
+            case DIVIDE:
+        }
     }
 
     @FXML
@@ -306,5 +322,33 @@ public class calController {
         pointButton.setDisable(false);
     }
 
+    private double computeAnswer(Operation operation) {
+        switch (operation) {
+            case ADD:
+                double[] nums = parseInput(Operation.ADD.getSymbol());
+                return Math.round((nums[0] + nums[1]) * 100.0) / 100.0;
+        }
 
+        return 0;
+    }
+
+    private double[] parseInput(String symbol) {
+        double[] nums = new double[2];
+        String[] values = inputField.getText().split("[" + symbol + "]");
+        int length = 0;
+
+        for (int i = 0; i < values.length; i++) {
+            values[length] = values[i].trim();
+            length++;
+        }
+
+        length = 0;
+
+        for (int i = 0; i < 2; i++) {
+            nums[length] = Double.parseDouble(values[i]);
+            length++;
+        }
+
+        return nums;
+    }
 }
