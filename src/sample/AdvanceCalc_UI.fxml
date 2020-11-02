@@ -18,7 +18,7 @@
       <VBox prefHeight="123.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
             <TextField alignment="CENTER_RIGHT" prefHeight="30.0" text="VALUES OR SOLUTION" />
-            <TextField alignment="CENTER_RIGHT" prefHeight="67.0" text="INPUT">
+            <TextField alignment="CENTER_RIGHT" prefHeight="67.0" text="INPUTS &amp; FINAL ANSWER">
                <font>
                   <Font size="32.0" />
                </font>
@@ -206,21 +206,83 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="xʸʸ" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
+               <graphic>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="  X">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <VBox prefHeight="38.0" prefWidth="7.0">
+                           <children>
+                              <Label prefHeight="30.0" prefWidth="13.0" text="y">
+                                 <padding>
+                                    <Insets left="1.0" top="14.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Label>
+                              <Label>
+                                 <padding>
+                                    <Insets top="12.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="61.0" prefWidth="10.0">
+                           <children>
+                              <Label text="z">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets top="8.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="xʸ" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
+               <graphic>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="X" />
+                        <VBox prefHeight="61.0" prefWidth="6.0">
+                           <children>
+                              <Label text="Y">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets top="14.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </graphic>
             </Button>
             <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="x²" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
