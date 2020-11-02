@@ -13,17 +13,17 @@
 <?import javafx.scene.text.Font?>
 
 
-<BorderPane prefHeight="532.0" prefWidth="541.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="532.0" prefWidth="541.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1 fx:controller="calController.java">
    <top>
       <VBox prefHeight="123.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField alignment="CENTER_RIGHT" prefHeight="30.0" text="VALUES OR SOLUTION" />
-            <TextField alignment="CENTER_RIGHT" prefHeight="67.0" text="INPUTS &amp; FINAL ANSWER">
+            <TextField fx:id="valuesField" alignment="CENTER_RIGHT" disable="true" editable="false" prefHeight="30.0" />
+            <TextField fx:id="inputField" alignment="CENTER_RIGHT" prefHeight="67.0">
                <font>
                   <Font size="32.0" />
                </font>
             </TextField>
-            <TextField prefHeight="30.0" text="PARTIAL ANSWER" />
+            <TextField fx:id="partialAnswerField" editable="false" prefHeight="30.0" />
          </children>
       </VBox>
    </top>
@@ -46,7 +46,7 @@
             <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="DEL" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <Button fx:id="delButton" mnemonicParsing="false" onAction="#delButtonClick" prefHeight="70.0" prefWidth="70.0" text="DEL" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
@@ -54,7 +54,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="AC" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <Button fx:id="acButton" mnemonicParsing="false" onAction="#acButtonClick" prefHeight="70.0" prefWidth="70.0" text="AC" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
@@ -62,7 +62,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="+/-" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <Button fx:id="negateButton" mnemonicParsing="false" onAction="#negateButtonClick" prefHeight="70.0" prefWidth="70.0" text="+/-" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
@@ -70,7 +70,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="7" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <Button fx:id="_7Button" mnemonicParsing="false" onAction="#_7ButtonClick" prefHeight="70.0" prefWidth="70.0" text="7" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
@@ -78,7 +78,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="8" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <Button fx:id="_8Button" mnemonicParsing="false" onAction="#_8ButtonClick" prefHeight="70.0" prefWidth="70.0" text="8" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
@@ -86,7 +86,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="9" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <Button fx:id="_9Button" mnemonicParsing="false" onAction="#_9ButtonClick" prefHeight="70.0" prefWidth="70.0" text="9" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
@@ -94,7 +94,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="*" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <Button fx:id="multiplyButton" mnemonicParsing="false" onAction="#multiplyButtonClick" prefHeight="70.0" prefWidth="70.0" text="*" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
@@ -102,7 +102,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="/" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <Button fx:id="divideButton" mnemonicParsing="false" onAction="#divideButtonClick" prefHeight="70.0" prefWidth="70.0" text="/" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
@@ -110,7 +110,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="4" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <Button fx:id="_4Button" mnemonicParsing="false" onAction="#_4ButtonClick" prefHeight="70.0" prefWidth="70.0" text="4" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
@@ -118,7 +118,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="5" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <Button fx:id="_5Button" mnemonicParsing="false" onAction="#_5ButtonClick" prefHeight="70.0" prefWidth="70.0" text="5" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
@@ -126,7 +126,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="6" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <Button fx:id="_6Button" mnemonicParsing="false" onAction="#_6ButtonClick" prefHeight="70.0" prefWidth="70.0" text="6" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
@@ -134,7 +134,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="-" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <Button fx:id="subtractButton" mnemonicParsing="false" onAction="#subtractButtonClick" prefHeight="70.0" prefWidth="70.0" text="-" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
@@ -142,7 +142,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="1" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <Button fx:id="_1Button" mnemonicParsing="false" onAction="#_1ButtonClick" prefHeight="70.0" prefWidth="70.0" text="1" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
@@ -150,7 +150,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="2" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <Button fx:id="_2Button" mnemonicParsing="false" onAction="#_2ButtonClick" prefHeight="70.0" prefWidth="70.0" text="2" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
@@ -158,7 +158,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="3" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <Button fx:id="_3Button" mnemonicParsing="false" onAction="#_3ButtonClick" prefHeight="70.0" prefWidth="70.0" text="3" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
@@ -166,7 +166,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="+" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <Button fx:id="addButton" mnemonicParsing="false" onAction="#addButtonClick" prefHeight="70.0" prefWidth="70.0" text="+" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
@@ -174,7 +174,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <Button fx:id="_0Button" mnemonicParsing="false" onAction="#_0ButtonClick" prefHeight="70.0" prefWidth="70.0" text="0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
@@ -182,7 +182,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="." GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <Button fx:id="pointButton" mnemonicParsing="false" onAction="#pointButtonClick" prefHeight="70.0" prefWidth="70.0" text="." GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
@@ -190,7 +190,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="ʸ√x" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <Button fx:id="yRootButton" mnemonicParsing="false" onAction="#yRootButtonClick" prefHeight="70.0" prefWidth="70.0" text="ʸ√x" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
@@ -198,7 +198,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="²√x" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <Button fx:id="squareRootButton" mnemonicParsing="false" onAction="#squareRootButtonClick" prefHeight="70.0" prefWidth="70.0" text="²√x" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
@@ -206,7 +206,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <Button fx:id="nestedPowButton" mnemonicParsing="false" onAction="#nestedPowButtonClick" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
@@ -257,7 +257,7 @@
                   </HBox>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <Button fx:id="powoOfYButton" mnemonicParsing="false" onAction="#powOfYButtonClick" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
@@ -267,7 +267,11 @@
                <graphic>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label text="X" />
+                        <Label text="X">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
                         <VBox prefHeight="61.0" prefWidth="6.0">
                            <children>
                               <Label text="Y">
@@ -284,7 +288,7 @@
                   </HBox>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="x²" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <Button fx:id="powOf2Button" mnemonicParsing="false" onAction="#powOf2ButtonClick" prefHeight="70.0" prefWidth="70.0" text="x²" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
@@ -292,7 +296,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="\%" GridPane.columnIndex="1">
+            <Button fx:id="moduloButton" mnemonicParsing="false" onAction="#moduloButtonClick" prefHeight="70.0" prefWidth="70.0" text="\%" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
@@ -300,7 +304,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="n!" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="factorialButton" mnemonicParsing="false" onAction="#factorialButtonClick" prefHeight="70.0" prefWidth="70.0" text="n!" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
@@ -308,7 +312,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="log x" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button fx:id="logOfXButton" mnemonicParsing="false" onAction="#logOfXButtonClick" prefHeight="70.0" prefWidth="70.0" text="log x" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
@@ -316,7 +320,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="logₓ y" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Button fx:id="logXofYButton" mnemonicParsing="false" onAction="#logXofYButtonClick" prefHeight="70.0" prefWidth="70.0" text="logₓ y" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
@@ -324,7 +328,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <Button fx:id="summationButton" mnemonicParsing="false" onAction="#summationButtonClick" prefHeight="70.0" prefWidth="70.0" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
@@ -353,7 +357,7 @@
                   </HBox>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="extra">
+            <Button fx:id="ansButton" mnemonicParsing="false" onAction="#ansButtonClick" prefHeight="70.0" prefWidth="146.0" text="Ans" GridPane.columnSpan="2">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
@@ -361,7 +365,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="extra" GridPane.rowIndex="1">
+            <Button fx:id="floorButton" mnemonicParsing="false" onAction="#floorButtonClick" prefHeight="70.0" prefWidth="70.0" text="⌊x⌋" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
@@ -369,7 +373,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="⌊x⌋" GridPane.rowIndex="2">
+            <Button fx:id="ceilButton" mnemonicParsing="false" onAction="#ceilButtonClick" prefHeight="70.0" prefWidth="70.0" text="⌈x⌉" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
@@ -377,15 +381,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="⌈x⌉" GridPane.rowIndex="3">
-               <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" GridPane.rowIndex="4">
+            <Button fx:id="nestedSummationButton" mnemonicParsing="false" onAction="#nestedSummationButtonClick" prefHeight="70.0" prefWidth="70.0" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
@@ -429,7 +425,7 @@
                   </HBox>
                </graphic>
             </Button>
-            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="70.0" prefWidth="146.0" text="=" GridPane.columnIndex="5" GridPane.columnSpan="2" GridPane.rowIndex="4">
+            <Button fx:id="equalsButton" alignment="CENTER" mnemonicParsing="false" onAction="#equalsButtonClick" prefHeight="70.0" prefWidth="146.0" text="=" GridPane.columnIndex="5" GridPane.columnSpan="2" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
