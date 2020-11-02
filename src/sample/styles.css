@@ -1,0 +1,9 @@
+.root{
+    -fx-background-color: #808080;
+}
+.fieldHolder{
+    -fx-background-color: #ffffff;
+}
+.text-field{
+    -fx-background-color: transparent;
+}

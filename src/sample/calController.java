@@ -5,6 +5,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
+
 
 public class calController {
 
@@ -168,11 +172,13 @@ public class calController {
 
     @FXML
     void acButtonClick(ActionEvent event) {
+        enablePointButton();
 
     }
 
     @FXML
     void addButtonClick(ActionEvent event) {
+        enablePointButton();
 
     }
 
@@ -193,11 +199,13 @@ public class calController {
 
     @FXML
     void divideButtonClick(ActionEvent event) {
+        enablePointButton();
 
     }
 
     @FXML
     void equalsButtonClick(ActionEvent event) {
+        enablePointButton();
 
     }
 
@@ -228,11 +236,13 @@ public class calController {
 
     @FXML
     void multiplyButtonClick(ActionEvent event) {
+        enablePointButton();
 
     }
 
     @FXML
     void negateButtonClick(ActionEvent event) {
+        enablePointButton();
 
     }
 
@@ -248,7 +258,7 @@ public class calController {
 
     @FXML
     void pointButtonClick(ActionEvent event) {
-
+        disablePointButton();
     }
 
     @FXML
@@ -279,6 +289,21 @@ public class calController {
     @FXML
     void yRootButtonClick(ActionEvent event) {
 
+    }
+
+
+    public void initialize(URL url, ResourceBundle rb) {
+
+
+
+    }
+
+    private void disablePointButton(){
+        pointButton.setDisable(true);
+    }
+
+    private void enablePointButton(){
+        pointButton.setDisable(false);
     }
 
 
