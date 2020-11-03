@@ -122,7 +122,7 @@ public class calController {
 
     @FXML
     void _0ButtonClick(ActionEvent event) {
-
+        inputField.appendText("0");
     }
 
     @FXML
