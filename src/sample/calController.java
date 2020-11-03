@@ -120,6 +120,9 @@ public class calController {
     @FXML
     private Button equalsButton;
 
+    private double firstNum, secondNum;
+    private Operation operation;
+
     @FXML
     void _0ButtonClick(ActionEvent event) {
         inputField.appendText("0");
@@ -127,59 +130,76 @@ public class calController {
 
     @FXML
     void _1ButtonClick(ActionEvent event) {
-
+        inputField.appendText("1");
     }
 
     @FXML
     void _2ButtonClick(ActionEvent event) {
-
+        inputField.appendText("2");
     }
 
     @FXML
     void _3ButtonClick(ActionEvent event) {
-
+        inputField.appendText("3");
     }
 
     @FXML
     void _4ButtonClick(ActionEvent event) {
-
+        inputField.appendText("4");
     }
 
     @FXML
     void _5ButtonClick(ActionEvent event) {
-
+        inputField.appendText("5");
     }
 
     @FXML
     void _6ButtonClick(ActionEvent event) {
-
+        inputField.appendText("6");
     }
 
     @FXML
     void _7ButtonClick(ActionEvent event) {
-
+        inputField.appendText("7");
     }
 
     @FXML
     void _8ButtonClick(ActionEvent event) {
-
+        inputField.appendText("8");
     }
 
     @FXML
     void _9ButtonClick(ActionEvent event) {
-
+        inputField.appendText("9");
     }
 
     @FXML
     void acButtonClick(ActionEvent event) {
         enablePointButton();
-
+        valuesField.clear();
+        inputField.clear();
+        partialAnswerField.clear();
     }
+
+//    TODO: README
+//    this code is messy
+//    but will be cleaned up once decided on a course to take
+//    it serves only to show the basic functionality of the calculator
+//    which for now is Addition
+//    take note that this implementation only allows for two operators
+//    e.g. 1+34 OR 34 * 99
+//    AND it does not have error handling
+//    suggestions are always welcome btw ;)
 
     @FXML
     void addButtonClick(ActionEvent event) {
         enablePointButton();
-
+        operation = Operation.ADD;
+        inputField.appendText(" + ");
+        valuesField.setText(inputField.getText());
+        firstNum = parseInput(inputField.getText());
+        inputField.clear();
+        partialAnswerField.setText(String.valueOf(firstNum));
     }
 
     @FXML
@@ -206,7 +226,10 @@ public class calController {
     @FXML
     void equalsButtonClick(ActionEvent event) {
         enablePointButton();
-
+        secondNum = parseInput(inputField.getText());
+        valuesField.appendText(inputField.getText());
+        inputField.setText(String.valueOf(computeAnswer(operation)));
+        partialAnswerField.clear();
     }
 
     @FXML
@@ -306,5 +329,18 @@ public class calController {
         pointButton.setDisable(false);
     }
 
+    private double parseInput(String input) {
+//        split string to a non-digit
+//        docs reference: https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html
+        String[] values = input.split("[\\D]");
+        return Double.parseDouble(values[0]);
+    }
 
+    private double computeAnswer(Operation operation) {
+        switch (operation) {
+            case ADD:
+                return firstNum + secondNum;
+        }
+        return 0;
+    }
 }
