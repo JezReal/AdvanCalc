@@ -6,7 +6,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 
@@ -195,11 +194,8 @@ public class calController {
     void addButtonClick(ActionEvent event) {
         enablePointButton();
         operation = Operation.ADD;
-        inputField.appendText(" + ");
-        valuesField.setText(inputField.getText());
-        firstNum = parseInput(inputField.getText());
-        inputField.clear();
-        partialAnswerField.setText(String.valueOf(firstNum));
+        processValues();
+
     }
 
     @FXML
@@ -220,7 +216,8 @@ public class calController {
     @FXML
     void divideButtonClick(ActionEvent event) {
         enablePointButton();
-
+        operation = Operation.DIVIDE;
+        processValues();
     }
 
     @FXML
@@ -260,13 +257,13 @@ public class calController {
     @FXML
     void multiplyButtonClick(ActionEvent event) {
         enablePointButton();
-
+        operation = Operation.MULTIPLY;
+        processValues();
     }
 
     @FXML
     void negateButtonClick(ActionEvent event) {
         enablePointButton();
-
     }
 
     @FXML
@@ -301,6 +298,10 @@ public class calController {
 
     @FXML
     void subtractButtonClick(ActionEvent event) {
+        enablePointButton();
+        operation = Operation.SUBTRACT;
+        processValues();
+
 
     }
 
@@ -329,6 +330,16 @@ public class calController {
         pointButton.setDisable(false);
     }
 
+//  This method is responsible for processing the input values for calculation
+    private void processValues(){
+
+        inputField.appendText(String.format(" %s ",operation.getSymbol()));
+        valuesField.setText(inputField.getText());
+        firstNum = parseInput(inputField.getText());
+        inputField.clear();
+        partialAnswerField.setText(String.valueOf(firstNum));
+    }
+
     private double parseInput(String input) {
 //        split string to a non-digit
 //        docs reference: https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html
@@ -340,6 +351,12 @@ public class calController {
         switch (operation) {
             case ADD:
                 return firstNum + secondNum;
+            case SUBTRACT:
+                return firstNum - secondNum;
+            case MULTIPLY:
+                return firstNum * secondNum;
+            case DIVIDE:
+                return firstNum / secondNum;
         }
         return 0;
     }
