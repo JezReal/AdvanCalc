@@ -272,7 +272,10 @@ public class calController {
 
     @FXML
     void delButtonClick(ActionEvent event) {
-
+        if (inputField.getText().length() != 0) {
+            inputField.setText(inputField.getText().substring(0, inputField.getText().length() - 1));
+        }
+        return;
     }
 
     @FXML
