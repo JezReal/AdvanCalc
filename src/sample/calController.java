@@ -223,9 +223,9 @@ public class calController {
     @FXML
     void equalsButtonClick(ActionEvent event) {
         enablePointButton();
-        secondNum = parseInput(inputField.getText());
+        secondNum = Double.parseDouble(inputField.getText());
         valuesField.appendText(inputField.getText());
-        inputField.setText(String.valueOf(computeAnswer(operation)));
+        inputField.setText(String.valueOf(computeAnswer()));
         partialAnswerField.clear();
     }
 
@@ -278,6 +278,7 @@ public class calController {
 
     @FXML
     void pointButtonClick(ActionEvent event) {
+        inputField.appendText(".");
         disablePointButton();
     }
 
@@ -333,9 +334,9 @@ public class calController {
 //  This method is responsible for processing the input values for calculation
     private void processValues(){
 
+        firstNum = Double.parseDouble(inputField.getText());
         inputField.appendText(String.format(" %s ",operation.getSymbol()));
         valuesField.setText(inputField.getText());
-        firstNum = parseInput(inputField.getText());
         inputField.clear();
         partialAnswerField.setText(String.valueOf(firstNum));
     }
@@ -347,7 +348,7 @@ public class calController {
         return Double.parseDouble(values[0]);
     }
 
-    private double computeAnswer(Operation operation) {
+    private double computeAnswer() {
         switch (operation) {
             case ADD:
                 return firstNum + secondNum;
