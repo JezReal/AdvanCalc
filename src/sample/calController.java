@@ -341,13 +341,6 @@ public class calController {
         partialAnswerField.setText(String.valueOf(firstNum));
     }
 
-    private double parseInput(String input) {
-//        split string to a non-digit
-//        docs reference: https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html
-        String[] values = input.split("[\\D]");
-        return Double.parseDouble(values[0]);
-    }
-
     private double computeAnswer() {
         switch (operation) {
             case ADD:
