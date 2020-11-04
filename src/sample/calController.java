@@ -119,9 +119,9 @@ public class calController {
     @FXML
     private Button equalsButton;
 
-    private double firstNum=0, secondNum=0;
-    private Operation operation;
-    private boolean newProcess=false;
+    private double firstNum = 0, secondNum = 0;
+    private Operation operation = Operation.NONE;
+    private boolean newProcess = false;
 
     @FXML
     void _0ButtonClick(ActionEvent event) {
@@ -252,16 +252,6 @@ public class calController {
         clearFields();
     }
 
-//    TODO: README
-//    this code is messy
-//    but will be cleaned up once decided on a course to take
-//    it serves only to show the basic functionality of the calculator
-//    which for now is Addition
-//    take note that this implementation only allows for two operators
-//    e.g. 1+34 OR 34 * 99
-//    AND it does not have error handling
-//    suggestions are always welcome btw ;)
-
     @FXML
     void addButtonClick(ActionEvent event) {
         enablePointButton();
@@ -295,11 +285,23 @@ public class calController {
     @FXML
     void equalsButtonClick(ActionEvent event) {
         enablePointButton();
-        secondNum = Double.parseDouble(inputField.getText());
-        valuesField.appendText(inputField.getText());
-        inputField.setText(String.valueOf(computeAnswer()));
-        partialAnswerField.clear();
-        setNewProcess(true);
+
+        if (operation == Operation.NONE) {
+            partialAnswerField.setText(inputField.getText());
+        } else {
+            try {
+                secondNum = Double.parseDouble(inputField.getText());
+            } catch (NumberFormatException e) {
+                secondNum = 0;
+            }
+            valuesField.appendText(inputField.getText());
+            inputField.setText(String.valueOf(computeAnswer()));
+            partialAnswerField.clear();
+            setNewProcess(true);
+            operation = Operation.NONE;
+        }
+
+
     }
 
     @FXML
@@ -389,10 +391,8 @@ public class calController {
 
     }
 
-
+    @FXML
     public void initialize(URL url, ResourceBundle rb) {
-
-
 
     }
 
@@ -424,6 +424,8 @@ public class calController {
                 return firstNum * secondNum;
             case DIVIDE:
                 return firstNum / secondNum;
+            case NONE:
+                return 0;
         }
         return 0;
     }
