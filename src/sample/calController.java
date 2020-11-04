@@ -6,7 +6,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 
@@ -120,65 +119,82 @@ public class calController {
     @FXML
     private Button equalsButton;
 
+    private double firstNum, secondNum;
+    private Operation operation;
+
     @FXML
     void _0ButtonClick(ActionEvent event) {
-
+        inputField.appendText("0");
     }
 
     @FXML
     void _1ButtonClick(ActionEvent event) {
-
+        inputField.appendText("1");
     }
 
     @FXML
     void _2ButtonClick(ActionEvent event) {
-
+        inputField.appendText("2");
     }
 
     @FXML
     void _3ButtonClick(ActionEvent event) {
-
+        inputField.appendText("3");
     }
 
     @FXML
     void _4ButtonClick(ActionEvent event) {
-
+        inputField.appendText("4");
     }
 
     @FXML
     void _5ButtonClick(ActionEvent event) {
-
+        inputField.appendText("5");
     }
 
     @FXML
     void _6ButtonClick(ActionEvent event) {
-
+        inputField.appendText("6");
     }
 
     @FXML
     void _7ButtonClick(ActionEvent event) {
-
+        inputField.appendText("7");
     }
 
     @FXML
     void _8ButtonClick(ActionEvent event) {
-
+        inputField.appendText("8");
     }
 
     @FXML
     void _9ButtonClick(ActionEvent event) {
-
+        inputField.appendText("9");
     }
 
     @FXML
     void acButtonClick(ActionEvent event) {
         enablePointButton();
-
+        valuesField.clear();
+        inputField.clear();
+        partialAnswerField.clear();
     }
+
+//    TODO: README
+//    this code is messy
+//    but will be cleaned up once decided on a course to take
+//    it serves only to show the basic functionality of the calculator
+//    which for now is Addition
+//    take note that this implementation only allows for two operators
+//    e.g. 1+34 OR 34 * 99
+//    AND it does not have error handling
+//    suggestions are always welcome btw ;)
 
     @FXML
     void addButtonClick(ActionEvent event) {
         enablePointButton();
+        operation = Operation.ADD;
+        processValues();
 
     }
 
@@ -200,13 +216,17 @@ public class calController {
     @FXML
     void divideButtonClick(ActionEvent event) {
         enablePointButton();
-
+        operation = Operation.DIVIDE;
+        processValues();
     }
 
     @FXML
     void equalsButtonClick(ActionEvent event) {
         enablePointButton();
-
+        secondNum = Double.parseDouble(inputField.getText());
+        valuesField.appendText(inputField.getText());
+        inputField.setText(String.valueOf(computeAnswer()));
+        partialAnswerField.clear();
     }
 
     @FXML
@@ -237,13 +257,13 @@ public class calController {
     @FXML
     void multiplyButtonClick(ActionEvent event) {
         enablePointButton();
-
+        operation = Operation.MULTIPLY;
+        processValues();
     }
 
     @FXML
     void negateButtonClick(ActionEvent event) {
         enablePointButton();
-
     }
 
     @FXML
@@ -258,6 +278,7 @@ public class calController {
 
     @FXML
     void pointButtonClick(ActionEvent event) {
+        inputField.appendText(".");
         disablePointButton();
     }
 
@@ -278,6 +299,10 @@ public class calController {
 
     @FXML
     void subtractButtonClick(ActionEvent event) {
+        enablePointButton();
+        operation = Operation.SUBTRACT;
+        processValues();
+
 
     }
 
@@ -306,5 +331,34 @@ public class calController {
         pointButton.setDisable(false);
     }
 
+//  This method is responsible for processing the input values for calculation
+    private void processValues(){
 
+        firstNum = Double.parseDouble(inputField.getText());
+        inputField.appendText(String.format(" %s ",operation.getSymbol()));
+        valuesField.setText(inputField.getText());
+        inputField.clear();
+        partialAnswerField.setText(String.valueOf(firstNum));
+    }
+
+    private double parseInput(String input) {
+//        split string to a non-digit
+//        docs reference: https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html
+        String[] values = input.split("[\\D]");
+        return Double.parseDouble(values[0]);
+    }
+
+    private double computeAnswer() {
+        switch (operation) {
+            case ADD:
+                return firstNum + secondNum;
+            case SUBTRACT:
+                return firstNum - secondNum;
+            case MULTIPLY:
+                return firstNum * secondNum;
+            case DIVIDE:
+                return firstNum / secondNum;
+        }
+        return 0;
+    }
 }

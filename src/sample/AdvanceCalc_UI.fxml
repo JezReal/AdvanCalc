@@ -356,7 +356,7 @@
                   </HBox>
                </graphic>
             </Button>
-            <Button fx:id="ansButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ansButtonClick" prefHeight="70.0" prefWidth="146.0" text="Ans" GridPane.columnSpan="2" GridPane.valignment="CENTER">
+            <Button fx:id="ansButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ansButtonClick" prefHeight="70.0" prefWidth="146.0" text="Set" GridPane.columnSpan="2" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
