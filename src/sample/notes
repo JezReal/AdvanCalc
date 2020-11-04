@@ -1,3 +1,9 @@
 valuesField
 inputField
 partialAnswerField
+
+a:12 b:100 exp: i+3
+
+12 [set]
+100 [set]
+i + 3 [set]

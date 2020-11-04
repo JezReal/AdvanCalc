@@ -2,6 +2,7 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
@@ -9,7 +10,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class calController {
+public class calController implements Initializable {
 
     @FXML
     private TextField valuesField;
@@ -119,9 +120,9 @@ public class calController {
     @FXML
     private Button equalsButton;
 
-    private double firstNum = 0, secondNum = 0;
-    private Operation operation = Operation.NONE;
-    private boolean newProcess = false;
+    private double firstNum, secondNum;
+    private Operation operation;
+    private boolean newProcess;
 
     @FXML
     void _0ButtonClick(ActionEvent event) {
@@ -291,7 +292,14 @@ public class calController {
 
         if (operation == Operation.NONE) {
             partialAnswerField.setText(inputField.getText());
-        } else {
+        } else if (operation == Operation.DIVIDE && inputField.getText().equals("0")) {
+            inputField.setText("Cannot divide by zero");
+            operation = Operation.NONE;
+            partialAnswerField.clear();
+            setNewProcess(true);
+        }
+
+        else {
             try {
                 secondNum = Double.parseDouble(inputField.getText());
             } catch (NumberFormatException e) {
@@ -396,7 +404,10 @@ public class calController {
 
     @FXML
     public void initialize(URL url, ResourceBundle rb) {
-
+        firstNum = 0;
+        secondNum = 0;
+        operation = Operation.NONE;
+        newProcess = false;
     }
 
     private void disablePointButton(){
