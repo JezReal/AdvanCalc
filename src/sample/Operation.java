@@ -4,7 +4,8 @@ public enum Operation {
     ADD ("+"),
     SUBTRACT ("-"),
     MULTIPLY ("x"),
-    DIVIDE ("÷");
+    DIVIDE ("÷"),
+    NONE (" ");
 
     private final String symbol;
 

@@ -119,65 +119,137 @@ public class calController {
     @FXML
     private Button equalsButton;
 
-    private double firstNum, secondNum;
+    private double firstNum=0, secondNum=0;
     private Operation operation;
+    private boolean newProcess=false;
 
     @FXML
     void _0ButtonClick(ActionEvent event) {
-        inputField.appendText("0");
+        if(isNewProcess()){
+            clearFields();
+            inputField.appendText("0");
+            setNewProcess(false);
+        }
+        else{
+            inputField.appendText("0");
+        }
     }
 
     @FXML
     void _1ButtonClick(ActionEvent event) {
-        inputField.appendText("1");
+
+        if(isNewProcess()){
+            clearFields();
+            inputField.appendText("1");
+            setNewProcess(false);
+        }
+        else{
+            inputField.appendText("1");
+        }
+
     }
 
     @FXML
     void _2ButtonClick(ActionEvent event) {
-        inputField.appendText("2");
+        if(isNewProcess()){
+            clearFields();
+            inputField.appendText("2");
+            setNewProcess(false);
+        }
+        else{
+            inputField.appendText("2");
+        }
     }
 
     @FXML
     void _3ButtonClick(ActionEvent event) {
-        inputField.appendText("3");
+        if(isNewProcess()){
+            clearFields();
+            inputField.appendText("3");
+            setNewProcess(false);
+        }
+        else{
+            inputField.appendText("3");
+        }
     }
 
     @FXML
     void _4ButtonClick(ActionEvent event) {
-        inputField.appendText("4");
+
+        if(isNewProcess()){
+            clearFields();
+            inputField.appendText("4");
+            setNewProcess(false);
+        }
+        else{
+            inputField.appendText("4");
+        }
     }
 
     @FXML
     void _5ButtonClick(ActionEvent event) {
-        inputField.appendText("5");
+        if(isNewProcess()){
+            clearFields();
+            inputField.appendText("5");
+            setNewProcess(false);
+        }
+        else{
+            inputField.appendText("5");
+        }
     }
 
     @FXML
     void _6ButtonClick(ActionEvent event) {
-        inputField.appendText("6");
+        if(isNewProcess()){
+            clearFields();
+            inputField.appendText("6");
+            setNewProcess(false);
+        }
+        else{
+            inputField.appendText("6");
+        }
     }
 
     @FXML
     void _7ButtonClick(ActionEvent event) {
-        inputField.appendText("7");
+        if(isNewProcess()){
+            clearFields();
+            inputField.appendText("7");
+            setNewProcess(false);
+        }
+        else{
+            inputField.appendText("7");
+        }
     }
 
     @FXML
     void _8ButtonClick(ActionEvent event) {
-        inputField.appendText("8");
+        if(isNewProcess()){
+            clearFields();
+            inputField.appendText("8");
+            setNewProcess(false);
+        }
+        else{
+            inputField.appendText("8");
+        }
     }
 
     @FXML
     void _9ButtonClick(ActionEvent event) {
-        inputField.appendText("9");
+        if(isNewProcess()){
+            clearFields();
+            inputField.appendText("9");
+            setNewProcess(false);
+        }
+        else{
+            inputField.appendText("9");
+        }
     }
 
     @FXML
     void acButtonClick(ActionEvent event) {
         enablePointButton();
-        valuesField.clear();
-        inputField.clear();
-        partialAnswerField.clear();
+        clearFields();
     }
 
 //    TODO: README
@@ -227,6 +299,7 @@ public class calController {
         valuesField.appendText(inputField.getText());
         inputField.setText(String.valueOf(computeAnswer()));
         partialAnswerField.clear();
+        setNewProcess(true);
     }
 
     @FXML
@@ -360,5 +433,19 @@ public class calController {
                 return firstNum / secondNum;
         }
         return 0;
+    }
+
+    private void setNewProcess(boolean newProcess){
+        this.newProcess=newProcess;
+    }
+
+    private boolean isNewProcess(){
+        return newProcess;
+    }
+
+    private void clearFields(){
+        valuesField.clear();
+        inputField.clear();
+        partialAnswerField.clear();
     }
 }
