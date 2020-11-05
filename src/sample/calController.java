@@ -281,6 +281,8 @@ public class calController implements Initializable {
 
     @FXML
     void ceilButtonClick(ActionEvent event) {
+        operation=Operation.CEIL;
+        processValues();
 
     }
 
@@ -309,6 +311,11 @@ public class calController implements Initializable {
             inputField.setText("Cannot divide by zero");
             operation = Operation.NONE;
             partialAnswerField.clear();
+            setNewProcess(true);
+        }
+
+        else if(operation==Operation.CEIL){
+            inputField.setText(String.valueOf(computeAnswer()));
             setNewProcess(true);
         }
 
@@ -401,8 +408,6 @@ public class calController implements Initializable {
         enablePointButton();
         operation = Operation.SUBTRACT;
         processValues();
-
-
     }
 
     @FXML
@@ -434,11 +439,18 @@ public class calController implements Initializable {
 //  This method is responsible for processing the input values for calculation
     private void processValues(){
 
-        firstNum = Double.parseDouble(inputField.getText());
-        inputField.appendText(String.format(" %s ",operation.getSymbol()));
-        valuesField.setText(inputField.getText());
-        inputField.clear();
-        partialAnswerField.setText(String.valueOf(firstNum));
+        if(operation==Operation.CEIL){
+            valuesField.setText(String.format("⌈%s⌉",inputField.getText()));
+            firstNum = Double.parseDouble(inputField.getText());
+        }
+        else{
+            firstNum = Double.parseDouble(inputField.getText());
+            inputField.appendText(String.format(" %s ",operation.getSymbol()));
+            valuesField.setText(inputField.getText());
+            inputField.clear();
+            partialAnswerField.setText(String.valueOf(firstNum));
+        }
+
     }
 
     private double computeAnswer() {
@@ -451,6 +463,8 @@ public class calController implements Initializable {
                 return firstNum * secondNum;
             case DIVIDE:
                 return firstNum / secondNum;
+            case CEIL:
+                return Math.ceil(firstNum);
             case NONE:
                 return 0;
         }

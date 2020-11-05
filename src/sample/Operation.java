@@ -5,6 +5,8 @@ public enum Operation {
     SUBTRACT ("-"),
     MULTIPLY ("x"),
     DIVIDE ("÷"),
+    CEIL ("⌈ ⌉ "),
+    FLOOR ("⌊ ⌋"),
     NONE (" ");
 
     private final String symbol;
