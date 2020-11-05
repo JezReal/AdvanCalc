@@ -319,6 +319,12 @@ public class calController implements Initializable {
             setNewProcess(true);
         }
 
+        else if(operation==Operation.FLOOR){
+            inputField.setText(String.valueOf(computeAnswer()));
+            setNewProcess(true);
+        }
+
+
         else {
             try {
                 secondNum = Double.parseDouble(inputField.getText());
