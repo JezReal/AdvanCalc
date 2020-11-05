@@ -342,7 +342,8 @@ public class calController implements Initializable {
 
     @FXML
     void floorButtonClick(ActionEvent event) {
-
+        operation=Operation.FLOOR;
+        processValues();
     }
 
     @FXML
@@ -443,6 +444,10 @@ public class calController implements Initializable {
             valuesField.setText(String.format("⌈%s⌉",inputField.getText()));
             firstNum = Double.parseDouble(inputField.getText());
         }
+        else if(operation==Operation.FLOOR){
+            valuesField.setText(String.format("⌈%s⌉",inputField.getText()));
+            firstNum = Double.parseDouble(inputField.getText());
+        }
         else{
             firstNum = Double.parseDouble(inputField.getText());
             inputField.appendText(String.format(" %s ",operation.getSymbol()));
@@ -465,6 +470,8 @@ public class calController implements Initializable {
                 return firstNum / secondNum;
             case CEIL:
                 return Math.ceil(firstNum);
+            case FLOOR:
+                return Math.floor(firstNum);
             case NONE:
                 return 0;
         }
