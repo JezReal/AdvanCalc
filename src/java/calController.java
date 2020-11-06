@@ -1,4 +1,4 @@
-package sample;
+package java;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -139,12 +139,11 @@ public class calController implements Initializable {
 
     @FXML
     void _0ButtonClick(ActionEvent event) {
-        if(isNewProcess()){
+        if (isNewProcess()) {
             clearFields();
             inputField.appendText("0");
             setNewProcess(false);
-        }
-        else{
+        } else {
             inputField.appendText("0");
         }
     }
@@ -152,12 +151,11 @@ public class calController implements Initializable {
     @FXML
     void _1ButtonClick(ActionEvent event) {
 
-        if(isNewProcess()){
+        if (isNewProcess()) {
             clearFields();
             inputField.appendText("1");
             setNewProcess(false);
-        }
-        else{
+        } else {
             inputField.appendText("1");
         }
 
@@ -165,24 +163,22 @@ public class calController implements Initializable {
 
     @FXML
     void _2ButtonClick(ActionEvent event) {
-        if(isNewProcess()){
+        if (isNewProcess()) {
             clearFields();
             inputField.appendText("2");
             setNewProcess(false);
-        }
-        else{
+        } else {
             inputField.appendText("2");
         }
     }
 
     @FXML
     void _3ButtonClick(ActionEvent event) {
-        if(isNewProcess()){
+        if (isNewProcess()) {
             clearFields();
             inputField.appendText("3");
             setNewProcess(false);
-        }
-        else{
+        } else {
             inputField.appendText("3");
         }
     }
@@ -190,85 +186,77 @@ public class calController implements Initializable {
     @FXML
     void _4ButtonClick(ActionEvent event) {
 
-        if(isNewProcess()){
+        if (isNewProcess()) {
             clearFields();
             inputField.appendText("4");
             setNewProcess(false);
-        }
-        else{
+        } else {
             inputField.appendText("4");
         }
     }
 
     @FXML
     void _5ButtonClick(ActionEvent event) {
-        if(isNewProcess()){
+        if (isNewProcess()) {
             clearFields();
             inputField.appendText("5");
             setNewProcess(false);
-        }
-        else{
+        } else {
             inputField.appendText("5");
         }
     }
 
     @FXML
     void _6ButtonClick(ActionEvent event) {
-        if(isNewProcess()){
+        if (isNewProcess()) {
             clearFields();
             inputField.appendText("6");
             setNewProcess(false);
-        }
-        else{
+        } else {
             inputField.appendText("6");
         }
     }
 
     @FXML
     void _7ButtonClick(ActionEvent event) {
-        if(isNewProcess()){
+        if (isNewProcess()) {
             clearFields();
             inputField.appendText("7");
             setNewProcess(false);
-        }
-        else{
+        } else {
             inputField.appendText("7");
         }
     }
 
     @FXML
     void _8ButtonClick(ActionEvent event) {
-        if(isNewProcess()){
+        if (isNewProcess()) {
             clearFields();
             inputField.appendText("8");
             setNewProcess(false);
-        }
-        else{
+        } else {
             inputField.appendText("8");
         }
     }
 
     @FXML
     void _9ButtonClick(ActionEvent event) {
-        if(isNewProcess()){
+        if (isNewProcess()) {
             clearFields();
             inputField.appendText("9");
             setNewProcess(false);
-        }
-        else{
+        } else {
             inputField.appendText("9");
         }
     }
 
     @FXML
     void acButtonClick(ActionEvent event) {
-        enablePointButton();
         clearFields();
     }
 
     @FXML
     void addButtonClick(ActionEvent event) {
-        enablePointButton();
         operation = Operation.ADD;
         processValues();
 
@@ -281,9 +269,8 @@ public class calController implements Initializable {
 
     @FXML
     void ceilButtonClick(ActionEvent event) {
-        operation=Operation.CEIL;
+        operation = Operation.CEIL;
         processValues();
-
     }
 
     @FXML
@@ -291,19 +278,17 @@ public class calController implements Initializable {
         if (inputField.getText().length() != 0) {
             inputField.setText(inputField.getText().substring(0, inputField.getText().length() - 1));
         }
-        return;
     }
 
     @FXML
     void divideButtonClick(ActionEvent event) {
-        enablePointButton();
+
         operation = Operation.DIVIDE;
         processValues();
     }
 
     @FXML
     void equalsButtonClick(ActionEvent event) {
-        enablePointButton();
 
         if (operation == Operation.NONE) {
             partialAnswerField.setText(inputField.getText());
@@ -312,20 +297,13 @@ public class calController implements Initializable {
             operation = Operation.NONE;
             partialAnswerField.clear();
             setNewProcess(true);
-        }
-
-        else if(operation==Operation.CEIL){
+        } else if (operation == Operation.CEIL) {
             inputField.setText(String.valueOf(computeAnswer()));
             setNewProcess(true);
-        }
-
-        else if(operation==Operation.FLOOR){
+        } else if (operation == Operation.FLOOR) {
             inputField.setText(String.valueOf(computeAnswer()));
             setNewProcess(true);
-        }
-
-
-        else {
+        } else {
             try {
                 secondNum = Double.parseDouble(inputField.getText());
             } catch (NumberFormatException e) {
@@ -337,8 +315,6 @@ public class calController implements Initializable {
             setNewProcess(true);
             operation = Operation.NONE;
         }
-
-
     }
 
     @FXML
@@ -348,7 +324,7 @@ public class calController implements Initializable {
 
     @FXML
     void floorButtonClick(ActionEvent event) {
-        operation=Operation.FLOOR;
+        operation = Operation.FLOOR;
         processValues();
     }
 
@@ -369,14 +345,13 @@ public class calController implements Initializable {
 
     @FXML
     void multiplyButtonClick(ActionEvent event) {
-        enablePointButton();
         operation = Operation.MULTIPLY;
         processValues();
     }
 
     @FXML
     void negateButtonClick(ActionEvent event) {
-        enablePointButton();
+
     }
 
     @FXML
@@ -392,7 +367,6 @@ public class calController implements Initializable {
     @FXML
     void pointButtonClick(ActionEvent event) {
         inputField.appendText(".");
-        disablePointButton();
     }
 
     @FXML
@@ -412,7 +386,6 @@ public class calController implements Initializable {
 
     @FXML
     void subtractButtonClick(ActionEvent event) {
-        enablePointButton();
         operation = Operation.SUBTRACT;
         processValues();
     }
@@ -433,30 +406,28 @@ public class calController implements Initializable {
         secondNum = 0;
         operation = Operation.NONE;
         newProcess = false;
+
+        inputField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.contains(".")) {
+                pointButton.setDisable(true);
+            } else {
+                pointButton.setDisable(false);
+            }
+        });
     }
 
-    private void disablePointButton(){
-        pointButton.setDisable(true);
-    }
+    //  This method is responsible for processing the input values for calculation
+    private void processValues() {
 
-    private void enablePointButton(){
-        pointButton.setDisable(false);
-    }
-
-//  This method is responsible for processing the input values for calculation
-    private void processValues(){
-
-        if(operation==Operation.CEIL){
-            valuesField.setText(String.format("⌈%s⌉",inputField.getText()));
+        if (operation == Operation.CEIL) {
+            valuesField.setText(String.format("⌈%s⌉", inputField.getText()));
             firstNum = Double.parseDouble(inputField.getText());
-        }
-        else if(operation==Operation.FLOOR){
-            valuesField.setText(String.format("⌈%s⌉",inputField.getText()));
+        } else if (operation == Operation.FLOOR) {
+            valuesField.setText(String.format("⌈%s⌉", inputField.getText()));
             firstNum = Double.parseDouble(inputField.getText());
-        }
-        else{
+        } else {
             firstNum = Double.parseDouble(inputField.getText());
-            inputField.appendText(String.format(" %s ",operation.getSymbol()));
+            inputField.appendText(String.format(" %s ", operation.getSymbol()));
             valuesField.setText(inputField.getText());
             inputField.clear();
             partialAnswerField.setText(String.valueOf(firstNum));
@@ -484,15 +455,15 @@ public class calController implements Initializable {
         return 0;
     }
 
-    private void setNewProcess(boolean newProcess){
-        this.newProcess=newProcess;
+    private void setNewProcess(boolean newProcess) {
+        this.newProcess = newProcess;
     }
 
-    private boolean isNewProcess(){
+    private boolean isNewProcess() {
         return newProcess;
     }
 
-    private void clearFields(){
+    private void clearFields() {
         valuesField.clear();
         inputField.clear();
         partialAnswerField.clear();
