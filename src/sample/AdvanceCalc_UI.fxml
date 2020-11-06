@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="532.0" prefWidth="541.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.calController">
+<BorderPane id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.calController">
    <top>
       <VBox id="fieldHolder" prefHeight="123.0" prefWidth="400.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
@@ -24,190 +17,194 @@
             </TextField>
             <TextField fx:id="partialAnswerField" editable="false" prefHeight="30.0" />
          </children>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="5.0" right="5.0" top="5.0" />
+         </BorderPane.margin>
       </VBox>
    </top>
    <center>
-      <GridPane alignment="CENTER" prefHeight="266.0" prefWidth="376.0" BorderPane.alignment="CENTER">
-        <columnConstraints>
+      <GridPane alignment="CENTER" BorderPane.alignment="CENTER">
+         <columnConstraints>
             <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
             <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
             <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
-          <ColumnConstraints hgrow="SOMETIMES" />
+            <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
+            <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
             <ColumnConstraints hgrow="SOMETIMES" />
             <ColumnConstraints hgrow="SOMETIMES" />
-          <ColumnConstraints hgrow="SOMETIMES" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints vgrow="SOMETIMES" />
-          <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
-          <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+            <ColumnConstraints hgrow="SOMETIMES" />
+         </columnConstraints>
+         <rowConstraints>
             <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
             <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
-        </rowConstraints>
+            <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+            <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+            <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+         </rowConstraints>
          <children>
-            <Button fx:id="delButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#delButtonClick" prefHeight="70.0" prefWidth="70.0" text="DEL" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Button fx:id="delButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#delButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="redButton" text="DEL" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="acButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#acButtonClick" prefHeight="70.0" prefWidth="70.0" text="AC" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Button fx:id="acButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#acButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="redButton" text="AC" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="negateButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#negateButtonClick" prefHeight="70.0" prefWidth="70.0" text="+/-" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Button fx:id="negateButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#negateButtonClick" prefHeight="70.0" prefWidth="70.0" text="+/-" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="_7Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#_7ButtonClick" prefHeight="70.0" prefWidth="70.0" text="7" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <Button fx:id="_9Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#_9ButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="numberButton" text="9" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="_8Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#_8ButtonClick" prefHeight="70.0" prefWidth="70.0" text="8" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <Button fx:id="_8Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#_8ButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="numberButton" text="8" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="_9Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#_9ButtonClick" prefHeight="70.0" prefWidth="70.0" text="9" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <Button fx:id="_7Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#_7ButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="numberButton" text="7" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="multiplyButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#multiplyButtonClick" prefHeight="70.0" prefWidth="70.0" text="*" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Button fx:id="_6Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#_6ButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="numberButton" text="6" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="divideButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#divideButtonClick" prefHeight="70.0" prefWidth="70.0" text="/" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <Button fx:id="_5Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#_5ButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="numberButton" text="5" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="_4Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#_4ButtonClick" prefHeight="70.0" prefWidth="70.0" text="4" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <Button fx:id="_4Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#_4ButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="numberButton" text="4" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="_5Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#_5ButtonClick" prefHeight="70.0" prefWidth="70.0" text="5" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <Button fx:id="_3Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#_3ButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="numberButton" text="3" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="_6Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#_6ButtonClick" prefHeight="70.0" prefWidth="70.0" text="6" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <Button fx:id="_2Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#_2ButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="numberButton" text="2" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="subtractButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#subtractButtonClick" prefHeight="70.0" prefWidth="70.0" text="-" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <Button fx:id="_1Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#_1ButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="numberButton" text="1" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="_1Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#_1ButtonClick" prefHeight="70.0" prefWidth="70.0" text="1" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <Button fx:id="_0Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#_0ButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="numberButton" text="0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="_2Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#_2ButtonClick" prefHeight="70.0" prefWidth="70.0" text="2" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <Button fx:id="pointButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#pointButtonClick" prefHeight="70.0" prefWidth="70.0" text="." GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="_3Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#_3ButtonClick" prefHeight="70.0" prefWidth="70.0" text="3" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <Button fx:id="multiplyButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#multiplyButtonClick" prefHeight="70.0" prefWidth="70.0" text="*" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="addButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addButtonClick" prefHeight="70.0" prefWidth="70.0" text="+" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <Button fx:id="divideButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#divideButtonClick" prefHeight="70.0" prefWidth="70.0" text="/" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="_0Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#_0ButtonClick" prefHeight="70.0" prefWidth="70.0" text="0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+            <Button fx:id="subtractButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#subtractButtonClick" prefHeight="70.0" prefWidth="70.0" text="-" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="pointButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#pointButtonClick" prefHeight="70.0" prefWidth="70.0" text="." GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+            <Button fx:id="addButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addButtonClick" prefHeight="70.0" prefWidth="70.0" text="+" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="yRootButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#yRootButtonClick" prefHeight="70.0" prefWidth="70.0" text="ʸ√x" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Button fx:id="yRootButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#yRootButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="cyanButton" text="ʸ√x" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="squareRootButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#squareRootButtonClick" prefHeight="70.0" prefWidth="70.0" text="²√x" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <Button fx:id="squareRootButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#squareRootButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="cyanButton" text="²√x" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="nestedPowButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#nestedPowButtonClick" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <Button fx:id="nestedPowButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#nestedPowButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="cyanButton" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
@@ -256,9 +253,9 @@
                   </HBox>
                </graphic>
             </Button>
-            <Button fx:id="powoOfYButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#powOfYButtonClick" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <Button fx:id="powoOfYButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#powOfYButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="cyanButton" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
@@ -287,49 +284,49 @@
                   </HBox>
                </graphic>
             </Button>
-            <Button fx:id="powOf2Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#powOf2ButtonClick" prefHeight="70.0" prefWidth="70.0" text="x²" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+            <Button fx:id="powOf2Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#powOf2ButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="cyanButton" text="x²" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="moduloButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#moduloButtonClick" prefHeight="70.0" prefWidth="70.0" text="\%" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <Button fx:id="moduloButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#moduloButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="cyanButton" text="\%" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="factorialButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#factorialButtonClick" prefHeight="70.0" prefWidth="70.0" text="n!" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <Button fx:id="factorialButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#factorialButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="cyanButton" text="n!" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="logOfXButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#logOfXButtonClick" prefHeight="70.0" prefWidth="70.0" text="log x" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <Button fx:id="logOfXButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#logOfXButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="cyanButton" text="log x" GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="logXofYButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#logXofYButtonClick" prefHeight="70.0" prefWidth="70.0" text="logₓ y" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+            <Button fx:id="logXofYButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#logXofYButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="cyanButton" text="logₓ y" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="summationButton" mnemonicParsing="false" onAction="#summationButtonClick" prefHeight="70.0" prefWidth="70.0" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <Button fx:id="summationButton" mnemonicParsing="false" onAction="#summationButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="cyanButton" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
@@ -356,33 +353,33 @@
                   </HBox>
                </graphic>
             </Button>
-            <Button fx:id="ansButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ansButtonClick" prefHeight="70.0" prefWidth="146.0" text="Set" GridPane.columnSpan="2" GridPane.valignment="CENTER">
+            <Button fx:id="ansButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ansButtonClick" styleClass="cyanButton" text="Set" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="floorButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#floorButtonClick" prefHeight="70.0" prefWidth="70.0" text="⌊x⌋" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <Button fx:id="floorButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#floorButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="cyanButton" text="⌊x⌋" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="ceilButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ceilButtonClick" prefHeight="70.0" prefWidth="70.0" text="⌈x⌉" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <Button fx:id="ceilButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ceilButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="cyanButton" text="⌈x⌉" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="nestedSummationButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#nestedSummationButtonClick" prefHeight="70.0" prefWidth="70.0" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+            <Button fx:id="nestedSummationButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#nestedSummationButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="cyanButton" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
@@ -424,14 +421,30 @@
                   </HBox>
                </graphic>
             </Button>
-            <Button fx:id="equalsButton" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#equalsButtonClick" prefHeight="70.0" prefWidth="146.0" text="=" GridPane.columnIndex="5" GridPane.columnSpan="2" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+            <Button fx:id="equalsButton" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#equalsButtonClick" text="=" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+            </Button>
+            <Button layoutX="228.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" styleClass="cyanButton" text="x" fx:id="xButton">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="yButton" layoutX="11.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" styleClass="cyanButton" text="y" GridPane.rowIndex="1">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
             </Button>
          </children>
          <BorderPane.margin>
-            <Insets top="10.0" />
+            <Insets />
          </BorderPane.margin>
       </GridPane>
    </center>

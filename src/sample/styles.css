@@ -1,9 +1,77 @@
-.root{
-    -fx-background-color: #808080;
+@font-face {
+    font-family: Barlow;
+    src: url('/resources/fonts');
 }
+
+.root{
+    -fx-background-color: #282a36;
+}
+
+/* Text Field */
 .fieldHolder{
     -fx-background-color: #ffffff;
 }
+
 .text-field{
     -fx-background-color: transparent;
+}
+
+/* Buttons */
+.button {
+    -fx-text-fill: #F8F8F2;
+    -fx-font-family: "Barlow";
+    -fx-font-size: 20px;
+    -fx-background-radius: 30px;
+    -fx-background-color: #44475A;
+    -fx-background-insets: 0;
+}
+
+.button:hover {
+    -fx-background-color: #6f7287;
+}
+
+.button:pressed {
+    -fx-background-color: #1c2031;
+}
+
+.numberButton {
+    -fx-font-weight: bold;
+}
+
+#equalsButton {
+    -fx-text-fill: #282a36;
+    -fx-background-color: #50fa7b;
+}
+
+#equalsButton:hover {
+    -fx-background-color: #8dffac;
+}
+
+#equalsButton:pressed {
+    -fx-background-color: #00c64c;
+}
+
+.redButton {
+    -fx-background-color: #ff5555;
+}
+
+.redButton:hover {
+    -fx-background-color: #ff8982;
+}
+
+.redButton:pressed {
+    -fx-background-color: #c5162c;
+}
+
+.cyanButton {
+    -fx-text-fill: #282a36;
+    -fx-background-color: #8be9fd;
+}
+
+.cyanButton:hover {
+    -fx-background-color: #c0ffff;
+}
+
+.cyanButton:pressed {
+    -fx-background-color: #56b7ca;
 }
