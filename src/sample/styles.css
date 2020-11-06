@@ -24,8 +24,9 @@
 /* Buttons */
 .button {
     -fx-text-fill: #F8F8F2;
-    -fx-font-family: "Barlow-Bold";
-    -fx-font-size: 20px;
+    -fx-font-family: "Barlow";
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
     -fx-background-radius: 30px;
     -fx-background-color: #44475A;
     -fx-background-insets: 0;
@@ -39,9 +40,9 @@
     -fx-background-color: #1c2031;
 }
 
-.numberButton {
-    -fx-font-weight: bold;
-}
+/*.numberButton {*/
+/*    -fx-font-weight: bold;*/
+/*}*/
 
 #equalsButton {
     -fx-text-fill: #282a36;
