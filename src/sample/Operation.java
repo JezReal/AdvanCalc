@@ -1,4 +1,4 @@
-package app;
+package sample;
 
 public enum Operation {
     ADD ("+"),
