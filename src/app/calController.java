@@ -351,7 +351,11 @@ public class calController implements Initializable {
 
     @FXML
     void negateButtonClick(ActionEvent event) {
-
+        if (inputField.getText().contains("-")) {
+            inputField.setText(inputField.getText().substring(1));
+        } else {
+            inputField.setText("-" + inputField.getText());
+        }
     }
 
     @FXML
