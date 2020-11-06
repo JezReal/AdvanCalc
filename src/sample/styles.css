@@ -3,6 +3,11 @@
     src: url('/resources/fonts/Barlow.ttf');
 }
 
+@font-face {
+    font-family: Barlow-Bold;
+    src: url('/resources/fonts/Barlow-Bold.ttf');
+}
+
 .root{
     -fx-background-color: #282a36;
 }
@@ -19,7 +24,7 @@
 /* Buttons */
 .button {
     -fx-text-fill: #F8F8F2;
-    -fx-font-family: "Barlow";
+    -fx-font-family: "Barlow-Bold";
     -fx-font-size: 20px;
     -fx-background-radius: 30px;
     -fx-background-color: #44475A;
