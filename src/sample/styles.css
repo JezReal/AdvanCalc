@@ -1,6 +1,6 @@
 @font-face {
     font-family: Barlow;
-    src: url('/resources/fonts');
+    src: url('/resources/fonts/Barlow.ttf');
 }
 
 .root{
