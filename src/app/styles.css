@@ -8,18 +8,37 @@
     src: url('/resources/fonts/Barlow-Bold.ttf');
 }
 
-.root{
+.root {
     -fx-background-color: #282a36;
 }
 
 /* Text Field */
-.fieldHolder{
+.fieldHolder {
     -fx-background-color: #ffffff;
 }
 
-.text-field{
-    -fx-background-color: transparent;
+.text-field {
+    -fx-text-fill: #F8F8F2;
+    /*-fx-background-color: #44475A;*/
+    -fx-font-family: "Barlow";
+    -fx-background-color: #282a36;
+    -fx-background-radius: 0;
 }
+
+/*#valuesField {*/
+/*    -fx-background-radius: 30px 30px 0 0;*/
+/*}*/
+
+#inputField {
+    -fx-font-weight: bold;
+    -fx-font-size: 50px;
+    /*-fx-background-radius: 0;*/
+}
+
+/*#partialAnswerField {*/
+/*    -fx-background-radius: 0 0 30px 30px;*/
+/*}*/
+
 
 /* Buttons */
 .button {

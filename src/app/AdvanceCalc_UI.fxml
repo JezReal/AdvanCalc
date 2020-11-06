@@ -5,16 +5,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.calController">
+<BorderPane id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.calController">
    <top>
-      <VBox id="fieldHolder" prefHeight="123.0" prefWidth="400.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+      <VBox id="fieldHolder" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
             <TextField fx:id="valuesField" alignment="CENTER_RIGHT" editable="false" prefHeight="30.0" />
-            <TextField fx:id="inputField" alignment="CENTER_RIGHT" editable="false" prefHeight="67.0">
-               <font>
-                  <Font size="32.0" />
-               </font>
-            </TextField>
+            <TextField fx:id="inputField" alignment="CENTER_RIGHT" editable="false" prefHeight="70.0" />
             <TextField fx:id="partialAnswerField" editable="false" prefHeight="30.0" />
          </children>
          <BorderPane.margin>
@@ -334,6 +330,9 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
             </Button>
+            <Button disable="true" layoutX="15.0" layoutY="95.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" styleClass="cyanButton" GridPane.rowIndex="2" />
+            <Button disable="true" layoutX="15.0" layoutY="175.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" styleClass="cyanButton" GridPane.rowIndex="3" />
+            <Button disable="true" layoutX="15.0" layoutY="255.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" styleClass="cyanButton" GridPane.rowIndex="4" />
          </children>
          <BorderPane.margin>
             <Insets />
