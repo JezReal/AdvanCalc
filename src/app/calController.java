@@ -253,13 +253,14 @@ public class calController implements Initializable {
     @FXML
     void acButtonClick(ActionEvent event) {
         clearFields();
+        firstNum = 0;
+        secondNum = 0;
     }
 
     @FXML
     void addButtonClick(ActionEvent event) {
         operation = Operation.ADD;
         processValues();
-
     }
 
     @FXML
@@ -282,7 +283,6 @@ public class calController implements Initializable {
 
     @FXML
     void divideButtonClick(ActionEvent event) {
-
         operation = Operation.DIVIDE;
         processValues();
     }
@@ -430,11 +430,19 @@ public class calController implements Initializable {
             valuesField.setText(String.format("⌈%s⌉", inputField.getText()));
             firstNum = Double.parseDouble(inputField.getText());
         } else {
-            firstNum = Double.parseDouble(inputField.getText());
+            try {
+                firstNum = Double.parseDouble(inputField.getText());
+            } catch (NumberFormatException ignored) {
+
+            }
             inputField.appendText(String.format(" %s ", operation.getSymbol()));
+//            TODO: fix this
+//            input field should not display anything if the user selected the operation and
+//            clicked the equals button
             valuesField.setText(inputField.getText());
             inputField.clear();
             partialAnswerField.setText(String.valueOf(firstNum));
+
         }
 
     }
@@ -456,6 +464,7 @@ public class calController implements Initializable {
             case NONE:
                 return 0;
         }
+
         return 0;
     }
 
