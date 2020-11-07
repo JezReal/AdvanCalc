@@ -1,4 +1,4 @@
-package sample;
+package app;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -123,10 +123,6 @@ public class calController implements Initializable {
     private double firstNum, secondNum;
     private Operation operation;
     private boolean newProcess;
-
-//    TODO: UI
-//    add x and y buttons for inputting expressions in summation
-//    e.g. lowerLimit: 1, upperLimit: 5, expression: x + 5
 
 //    TODO: functionality
 //    modulo, floor, ceiling, square root, nth root, x ^ y, x ^2
