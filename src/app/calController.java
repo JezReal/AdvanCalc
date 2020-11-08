@@ -134,6 +134,21 @@ public class calController implements Initializable {
     [3]find bugs, report, then try to fix
 */
 
+/*
+*   TODO: bug
+*    description:
+*       valuesField and partialAnswerField gets cleared when no input is specified
+*       and operator is clicked
+*
+*    steps to reproduce:
+*       solve a simple expression
+*       press ac
+*       press an operator (+,-,*,/)
+*       valueField and partialAnswerField will be cleared
+*
+*   probable cause:
+*       checking and assigning the newProcess variable
+*/
 
     @FXML
     void _0ButtonClick(ActionEvent event) {
