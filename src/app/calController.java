@@ -123,15 +123,17 @@ public class calController implements Initializable {
     private double firstNum, secondNum;
     private Operation operation;
     private boolean newProcess;
+/*
+    TODO: functionality
+    modulo, floor, ceiling, square root, nth root, x ^ y, x ^2
+    process:
+    [1]add operation in Operation enum
+    e.g. for square root: SQRT([symbol for square root. refer to internet])
+    [2]handle in respective method defined and in equalsButtonClick() method
+    refer to fxml file to know the associated method with the button
+    [3]find bugs, report, then try to fix
+*/
 
-//    TODO: functionality
-//    modulo, floor, ceiling, square root, nth root, x ^ y, x ^2
-//    process:
-//    [1]add operation in Operation enum
-//    e.g. for square root: SQRT([symbol for square root. refer to internet])
-//    [2]handle in respective method defined and in equalsButtonClick() method
-//    refer to fxml file to know the associated method with the button
-//    [3]find bugs, report, then try to fix
 
     @FXML
     void _0ButtonClick(ActionEvent event) {
@@ -154,7 +156,6 @@ public class calController implements Initializable {
         } else {
             inputField.appendText("1");
         }
-
     }
 
     @FXML
@@ -295,6 +296,11 @@ public class calController implements Initializable {
                 partialAnswerField.clear();
                 setNewProcess(true);
             } else {
+                try {
+                    secondNum = Double.parseDouble(inputField.getText());
+                } catch (NumberFormatException ignored) {
+
+                }
                 inputField.setText(String.valueOf(computeAnswer()));
                 operation = Operation.NONE;
                 partialAnswerField.clear();
@@ -305,7 +311,7 @@ public class calController implements Initializable {
             setNewProcess(true);
         } else if (operation == Operation.FLOOR) {
             inputField.setText(String.valueOf(computeAnswer()));
-            setNewProcess(true);
+             setNewProcess(true);
         } else {
             try {
                 secondNum = Double.parseDouble(inputField.getText());
@@ -315,7 +321,7 @@ public class calController implements Initializable {
             valuesField.appendText(inputField.getText());
             inputField.setText(String.valueOf(computeAnswer()));
             partialAnswerField.clear();
-            setNewProcess(true);
+             setNewProcess(true);
             operation = Operation.NONE;
         }
     }
@@ -439,10 +445,6 @@ public class calController implements Initializable {
 
             }
             inputField.appendText(String.format(" %s ", operation.getSymbol()));
-//            TODO: fix this
-//            input field should not display anything if the user selected the operation and
-//            clicked the equals button
-
 
             valuesField.setText(inputField.getText());
             inputField.clear();
