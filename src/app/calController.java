@@ -288,11 +288,18 @@ public class calController implements Initializable {
 
         if (operation == Operation.NONE) {
             partialAnswerField.setText(inputField.getText());
-        } else if (operation == Operation.DIVIDE && inputField.getText().equals("0")) {
-            inputField.setText("Cannot divide by zero");
-            operation = Operation.NONE;
-            partialAnswerField.clear();
-            setNewProcess(true);
+        } else if (operation == Operation.DIVIDE) {
+            if (inputField.getText().equals("0") || inputField.getText().isEmpty()) {
+                inputField.setText("Cannot divide by zero");
+                operation = Operation.NONE;
+                partialAnswerField.clear();
+                setNewProcess(true);
+            } else {
+                inputField.setText(String.valueOf(computeAnswer()));
+                operation = Operation.NONE;
+                partialAnswerField.clear();
+                setNewProcess(true);
+            }
         } else if (operation == Operation.CEIL) {
             inputField.setText(String.valueOf(computeAnswer()));
             setNewProcess(true);
@@ -435,6 +442,8 @@ public class calController implements Initializable {
 //            TODO: fix this
 //            input field should not display anything if the user selected the operation and
 //            clicked the equals button
+
+
             valuesField.setText(inputField.getText());
             inputField.clear();
             partialAnswerField.setText(String.valueOf(firstNum));
