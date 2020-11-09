@@ -134,21 +134,21 @@ public class calController implements Initializable {
     [3]find bugs, report, then try to fix
 */
 
-/*
-*   TODO: bug
-*    description:
-*       valuesField and partialAnswerField gets cleared when no input is specified
-*       and operator is clicked
-*
-*    steps to reproduce:
-*       solve a simple expression
-*       press ac
-*       press an operator (+,-,*,/)
-*       valueField and partialAnswerField will be cleared
-*
-*   probable cause:
-*       checking and assigning the newProcess variable
-*/
+    /*
+     *   TODO: bug
+     *    description:
+     *       valuesField and partialAnswerField gets cleared when no input is specified
+     *       and operator is clicked
+     *
+     *    steps to reproduce:
+     *       solve a simple expression
+     *       press ac
+     *       press an operator (+,-,*,/)
+     *       valueField and partialAnswerField will be cleared
+     *
+     *   probable cause:
+     *       checking and assigning the newProcess variable
+     */
 
     @FXML
     void _0ButtonClick(ActionEvent event) {
@@ -326,8 +326,12 @@ public class calController implements Initializable {
             setNewProcess(true);
         } else if (operation == Operation.FLOOR) {
             inputField.setText(String.valueOf(computeAnswer()));
-             setNewProcess(true);
-        } else {
+            setNewProcess(true);
+        } else if (operation == Operation.LOG) {
+            inputField.setText(String.valueOf(computeAnswer()));
+            setNewProcess(true);
+        }
+        else {
             try {
                 secondNum = Double.parseDouble(inputField.getText());
             } catch (NumberFormatException e) {
@@ -336,7 +340,7 @@ public class calController implements Initializable {
             valuesField.appendText(inputField.getText());
             inputField.setText(String.valueOf(computeAnswer()));
             partialAnswerField.clear();
-             setNewProcess(true);
+            setNewProcess(true);
             operation = Operation.NONE;
         }
     }
@@ -354,7 +358,8 @@ public class calController implements Initializable {
 
     @FXML
     void logOfXButtonClick(ActionEvent event) {
-
+        operation = Operation.LOG;
+        processValues();
     }
 
     @FXML
@@ -453,6 +458,14 @@ public class calController implements Initializable {
         } else if (operation == Operation.FLOOR) {
             valuesField.setText(String.format("⌈%s⌉", inputField.getText()));
             firstNum = Double.parseDouble(inputField.getText());
+        } else if (operation == Operation.LOG) {
+            try {
+                firstNum = Double.parseDouble(inputField.getText());
+            } catch (NumberFormatException e) {
+                firstNum = 0;
+            }
+            valuesField.setText(String.format("log(%s)", firstNum));
+
         } else {
             try {
                 firstNum = Double.parseDouble(inputField.getText());
@@ -483,6 +496,9 @@ public class calController implements Initializable {
                 return Math.ceil(firstNum);
             case FLOOR:
                 return Math.floor(firstNum);
+            case LOG:
+//                assume logarithm is of base 10 and not of base e
+                return Math.round(Math.log10(firstNum) * 100.0) / 100.0;
             case NONE:
                 return 0;
         }

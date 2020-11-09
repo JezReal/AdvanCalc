@@ -7,6 +7,7 @@ public enum Operation {
     DIVIDE ("÷"),
     CEIL ("⌈ ⌉ "),
     FLOOR ("⌊ ⌋"),
+    LOG("log"),
     NONE (" ");
 
     private final String symbol;
