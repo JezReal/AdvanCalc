@@ -13,8 +13,8 @@
 }
 
 GridPane {
-    -fx-hgap: 8px;
-    -fx-vgap: 8px;
+    -fx-hgap: 6px;
+    -fx-vgap: 6px;
 }
 
 /* Text Field */
@@ -51,7 +51,7 @@ GridPane {
     -fx-font-family: "Barlow";
     -fx-font-weight: bold;
     -fx-font-size: 20px;
-    -fx-background-radius: 28px;
+    -fx-background-radius: 25px;
     -fx-background-color: #44475A;
     -fx-background-insets: 0;
 }
