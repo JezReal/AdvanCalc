@@ -7,14 +7,14 @@
 
 <BorderPane id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.calController">
    <top>
-      <VBox id="fieldHolder" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
+      <VBox fx:id="fieldHolder" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="valuesField" alignment="CENTER_RIGHT" editable="false" prefHeight="30.0" />
-            <TextField fx:id="inputField" alignment="CENTER_RIGHT" editable="false" prefHeight="70.0" />
-            <TextField fx:id="partialAnswerField" editable="false" prefHeight="30.0" />
+            <TextField fx:id="valuesField" alignment="BOTTOM_RIGHT" editable="false" prefHeight="40.0" />
+            <TextField fx:id="inputField" alignment="CENTER_RIGHT" editable="false" prefHeight="80.0" />
+            <TextField fx:id="partialAnswerField" alignment="TOP_LEFT" editable="false" prefHeight="30.0" />
          </children>
          <BorderPane.margin>
-            <Insets bottom="25.0" />
+            <Insets bottom="25.0" top="5.0" />
          </BorderPane.margin>
       </VBox>
    </top>
@@ -40,7 +40,7 @@
          <children>
             <Button fx:id="delButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#delButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="redButton" text="DEL" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
             <Button fx:id="acButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#acButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="redButton" text="AC" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button fx:id="negateButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#negateButtonClick" prefHeight="70.0" prefWidth="70.0" text="+/-" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="negateButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#negateButtonClick" prefHeight="70.0" prefWidth="70.0" text="±" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
             <Button fx:id="_9Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#_9ButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="numberButton" text="9" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
             <Button fx:id="_8Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#_8ButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="numberButton" text="8" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
             <Button fx:id="_7Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#_7ButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="numberButton" text="7" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
@@ -52,8 +52,8 @@
             <Button fx:id="_1Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#_1ButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="numberButton" text="1" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
             <Button fx:id="_0Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#_0ButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="numberButton" text="0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
             <Button fx:id="pointButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#pointButtonClick" prefHeight="70.0" prefWidth="70.0" text="." GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-            <Button fx:id="multiplyButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#multiplyButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="operatorButton" text="*" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button fx:id="divideButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#divideButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="operatorButton" text="/" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Button fx:id="divideButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#divideButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="operatorButton" text="÷" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="multiplyButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#multiplyButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="operatorButton" text="×" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
             <Button fx:id="subtractButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#subtractButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="operatorButton" text="-" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
             <Button fx:id="addButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="operatorButton" text="+" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
             <Button fx:id="yRootButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#yRootButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="advMathFnButton" text="ʸ√x" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.valignment="CENTER" />
@@ -65,7 +65,7 @@
                         <Label text="  X" />
                         <VBox prefHeight="38.0" prefWidth="7.0">
                            <children>
-                              <Label prefHeight="30.0" prefWidth="13.0" text="y">
+                              <Label prefHeight="30.0" prefWidth="13.0" styleClass="smallerLetter" text="y">
                                  <padding>
                                     <Insets left="1.0" top="14.0" />
                                  </padding>
@@ -73,19 +73,11 @@
                                     <Font size="10.0" />
                                  </font>
                               </Label>
-                              <Label>
-                                 <padding>
-                                    <Insets top="12.0" />
-                                 </padding>
-                                 <font>
-                                    <Font size="11.0" />
-                                 </font>
-                              </Label>
                            </children>
                         </VBox>
                         <VBox prefHeight="61.0" prefWidth="10.0">
                            <children>
-                              <Label text="z">
+                              <Label styleClass="smallerLetter" text="z">
                                  <font>
                                     <Font size="10.0" />
                                  </font>
@@ -129,19 +121,19 @@
                <graphic>
                   <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="27.0">
                      <children>
-                        <Label text="Σ">
+                        <Label styleClass="sigma" text="Σ">
                            <font>
                               <Font size="30.0" />
                            </font>
                         </Label>
                         <VBox prefHeight="61.0" prefWidth="6.0">
                            <children>
-                              <Label text="a">
+                              <Label styleClass="smallLetter" text="a">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label text="b" />
+                              <Label styleClass="smallLetter" text="b" />
                            </children>
                         </VBox>
                      </children>
@@ -155,34 +147,34 @@
                <graphic>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label text="Σ">
+                        <Label styleClass="sigma" text="Σ">
                            <font>
                               <Font size="30.0" />
                            </font>
                         </Label>
                         <VBox prefHeight="61.0" prefWidth="6.0">
                            <children>
-                              <Label text="a">
+                              <Label styleClass="smallLetter" text="a">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label text="b" />
+                              <Label styleClass="smallLetter" text="b" />
                            </children>
                         </VBox>
-                        <Label text="Σ">
+                        <Label styleClass="sigma" text="Σ">
                            <font>
                               <Font size="30.0" />
                            </font>
                         </Label>
                         <VBox prefHeight="61.0" prefWidth="6.0">
                            <children>
-                              <Label text="c">
+                              <Label styleClass="smallLetter" text="c">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label text="d" />
+                              <Label styleClass="smallLetter" text="d" />
                            </children>
                         </VBox>
                      </children>

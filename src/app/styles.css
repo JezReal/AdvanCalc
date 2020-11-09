@@ -18,30 +18,40 @@ GridPane {
 }
 
 /* Text Field */
-.fieldHolder {
-    -fx-background-color: #ffffff;
+/*.fieldHolder {*/
+/*    -fx-background-color: #ffffff;*/
+/*}*/
+
+#fieldHolder {
+    -fx-background-color: #44475A;
+    -fx-background-radius: 25px;
 }
 
 .text-field {
     -fx-text-fill: #F8F8F2;
-    -fx-background-color: #44475A;
+    -fx-background-color: transparent;
     -fx-font-family: "Barlow";
     /*-fx-background-color: #282a36;*/
     -fx-background-radius: 0;
 }
 
 #valuesField {
-    -fx-background-radius: 28px 28px 0 0;
+    /*-fx-background-radius: 25px 25px 0 0;*/
+    -fx-padding: 0 30px 0 0;
+    -fx-text-fill: rgba(255, 255, 255, 0.80);
+    -fx-font-size: 18px;
 }
 
 #inputField {
-    -fx-font-weight: bold;
     -fx-font-size: 50px;
+    -fx-font-weight: bold;
     -fx-background-radius: 0;
 }
 
 #partialAnswerField {
-    -fx-background-radius: 0 0 28px 28px;
+    /*-fx-background-radius: 0 0 25px 25px;*/
+    -fx-padding: 0 0 0 15px;
+    -fx-text-fill: rgba(255, 255, 255, 0.60);
 }
 
 
@@ -50,7 +60,7 @@ GridPane {
     -fx-text-fill: #F8F8F2;
     -fx-font-family: "Barlow";
     -fx-font-weight: bold;
-    -fx-font-size: 20px;
+    -fx-font-size: 28px;
     -fx-background-radius: 25px;
     -fx-background-color: #44475A;
     -fx-background-insets: 0;
@@ -65,8 +75,7 @@ GridPane {
 }
 
 /*.numberButton {*/
-/*    -fx-font-weight: bold;*/
-/*    -fx-font-size: 25px;*/
+/*    -fx-font-size: 28px;*/
 /*}*/
 
 .operatorButton {
@@ -96,6 +105,7 @@ GridPane {
 }
 
 .redButton {
+    -fx-font-size: 20px;
     -fx-background-color: #ff5555;
 }
 
@@ -111,6 +121,27 @@ GridPane {
     -fx-font-size: 18px;
     -fx-text-fill: #282a36;
     -fx-background-color: #8be9fd;
+}
+
+.advMathFnButton .label {
+    -fx-text-fill: #282a36;
+    -fx-font-family: "Barlow";
+}
+
+.advMathFnButton .sigma {
+    -fx-font-size: 30px;
+}
+
+.advMathFnButton .smallLetter {
+    -fx-font-size: 15px;
+}
+
+.advMathFnButton .smallerLetter {
+    -fx-font-size: 13px;
+}
+
+.advMathFnButton .smallLetter, .advMathFnButton .smallerLetter {
+    -fx-font-weight: normal;
 }
 
 .advMathFnButton:hover {
