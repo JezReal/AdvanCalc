@@ -24,7 +24,7 @@
             <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
             <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
             <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
-            <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
+            <ColumnConstraints hgrow="ALWAYS" prefWidth="84.0" />
             <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
             <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
             <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
@@ -56,9 +56,9 @@
             <Button fx:id="divideButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#divideButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="operatorButton" text="/" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
             <Button fx:id="subtractButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#subtractButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="operatorButton" text="-" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
             <Button fx:id="addButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="operatorButton" text="+" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-            <Button fx:id="yRootButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#yRootButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="advMathFnButton" text="ʸ√x" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button fx:id="squareRootButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#squareRootButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="advMathFnButton" text="²√x" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Button fx:id="nestedPowButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#nestedPowButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="advMathFnButton" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <Button fx:id="yRootButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#yRootButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="advMathFnButton" text="ʸ√x" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.valignment="CENTER" />
+            <Button fx:id="squareRootButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#squareRootButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="advMathFnButton" text="²√x" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Button fx:id="nestedPowButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#nestedPowButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="advMathFnButton" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <graphic>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
@@ -99,7 +99,7 @@
                   </HBox>
                </graphic>
             </Button>
-            <Button fx:id="powoOfYButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#powOfYButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="advMathFnButton" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <Button fx:id="powoOfYButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#powOfYButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="advMathFnButton" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <graphic>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
@@ -120,7 +120,7 @@
                   </HBox>
                </graphic>
             </Button>
-            <Button fx:id="powOf2Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#powOf2ButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="advMathFnButton" text="x²" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+            <Button fx:id="powOf2Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#powOf2ButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="advMathFnButton" text="x²" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
             <Button fx:id="moduloButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#moduloButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="advMathFnButton" text="\%" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
             <Button fx:id="factorialButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#factorialButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="advMathFnButton" text="n!" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
             <Button fx:id="logOfXButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#logOfXButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="advMathFnButton" text="log x" GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
