@@ -453,11 +453,23 @@ public class calController implements Initializable {
     private void processValues() {
 
         if (operation == Operation.CEIL) {
-            valuesField.setText(String.format("⌈%s⌉", inputField.getText()));
-            firstNum = Double.parseDouble(inputField.getText());
+//            initialize firstNum to 0 if user clicks on ceil on operation
+//            without entering any input
+            try {
+                firstNum = Double.parseDouble(inputField.getText());
+            } catch (NumberFormatException e) {
+                firstNum = 0;
+            }
+
+            valuesField.setText(String.format("⌈%s⌉", firstNum));
         } else if (operation == Operation.FLOOR) {
-            valuesField.setText(String.format("⌈%s⌉", inputField.getText()));
-            firstNum = Double.parseDouble(inputField.getText());
+            try {
+                firstNum = Double.parseDouble(inputField.getText());
+            } catch (NumberFormatException e) {
+                firstNum = 0;
+            }
+
+            valuesField.setText(String.format("⌈%s⌉", firstNum));
         } else if (operation == Operation.LOG) {
             try {
                 firstNum = Double.parseDouble(inputField.getText());
