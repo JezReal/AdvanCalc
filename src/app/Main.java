@@ -10,6 +10,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        System.setProperty("prism.lcdtext", "false");
         Parent root = FXMLLoader.load(getClass().getResource("AdvanceCalc_UI.fxml"));
         primaryStage.setTitle("AdvanCalc");
         primaryStage.setScene(new Scene(root));
