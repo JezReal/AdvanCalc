@@ -123,32 +123,7 @@ public class calController implements Initializable {
     private double firstNum, secondNum;
     private Operation operation;
     private boolean newProcess;
-/*
-    TODO: functionality
-    modulo, floor, ceiling, square root, nth root, x ^ y, x ^2
-    process:
-    [1]add operation in Operation enum
-    e.g. for square root: SQRT([symbol for square root. refer to internet])
-    [2]handle in respective method defined and in equalsButtonClick() method
-    refer to fxml file to know the associated method with the button
-    [3]find bugs, report, then try to fix
-*/
 
-    /*
-     *   TODO: bug
-     *    description:
-     *       valuesField and partialAnswerField gets cleared when no input is specified
-     *       and operator is clicked
-     *
-     *    steps to reproduce:
-     *       solve a simple expression
-     *       press ac
-     *       press an operator (+,-,*,/)
-     *       valueField and partialAnswerField will be cleared
-     *
-     *   probable cause:
-     *       checking and assigning the newProcess variable
-     */
 
     @FXML
     void _0ButtonClick(ActionEvent event) {
