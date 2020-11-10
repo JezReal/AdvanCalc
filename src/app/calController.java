@@ -444,7 +444,7 @@ public class calController implements Initializable {
                 firstNum = 0;
             }
 
-            valuesField.setText(String.format("⌈%s⌉", firstNum));
+            valuesField.setText(String.format("⌊%s⌋", firstNum));
         } else if (operation == Operation.LOG) {
             try {
                 firstNum = Double.parseDouble(inputField.getText());
