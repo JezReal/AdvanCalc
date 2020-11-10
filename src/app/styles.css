@@ -53,6 +53,7 @@ GridPane {
 
 
 /*** Buttons ***/
+
 .button {
     -fx-text-fill: #F8F8F2;
     -fx-font-family: "Barlow";
@@ -133,7 +134,7 @@ GridPane {
 }
 
 .advMathFnButton .sigma {
-    -fx-font-size: 30px;
+    -fx-font-size: 25px;
 }
 
 .advMathFnButton .smallLetter {
