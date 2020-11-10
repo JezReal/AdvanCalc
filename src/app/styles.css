@@ -17,10 +17,9 @@ GridPane {
     -fx-vgap: 6px;
 }
 
-/* Text Field */
-/*.fieldHolder {*/
-/*    -fx-background-color: #ffffff;*/
-/*}*/
+
+
+/*** Text Field ***/
 
 #fieldHolder {
     -fx-background-color: #44475A;
@@ -31,12 +30,10 @@ GridPane {
     -fx-text-fill: #F8F8F2;
     -fx-background-color: transparent;
     -fx-font-family: "Barlow";
-    /*-fx-background-color: #282a36;*/
     -fx-background-radius: 0;
 }
 
 #valuesField {
-    /*-fx-background-radius: 25px 25px 0 0;*/
     -fx-padding: 0 30px 0 0;
     -fx-text-fill: rgba(255, 255, 255, 0.80);
     -fx-font-size: 18px;
@@ -49,17 +46,16 @@ GridPane {
 }
 
 #partialAnswerField {
-    /*-fx-background-radius: 0 0 25px 25px;*/
     -fx-padding: 0 0 0 15px;
     -fx-text-fill: rgba(255, 255, 255, 0.60);
 }
 
 
-/* Buttons */
+
+/*** Buttons ***/
 .button {
     -fx-text-fill: #F8F8F2;
     -fx-font-family: "Barlow";
-    -fx-font-weight: bold;
     -fx-font-size: 28px;
     -fx-background-radius: 25px;
     -fx-background-color: #44475A;
@@ -123,6 +119,14 @@ GridPane {
     -fx-background-color: #8be9fd;
 }
 
+.advMathFnButton:hover {
+    -fx-background-color: #c0ffff;
+}
+
+.advMathFnButton:pressed {
+    -fx-background-color: #56b7ca;
+}
+
 .advMathFnButton .label {
     -fx-text-fill: #282a36;
     -fx-font-family: "Barlow";
@@ -142,12 +146,4 @@ GridPane {
 
 .advMathFnButton .smallLetter, .advMathFnButton .smallerLetter {
     -fx-font-weight: normal;
-}
-
-.advMathFnButton:hover {
-    -fx-background-color: #c0ffff;
-}
-
-.advMathFnButton:pressed {
-    -fx-background-color: #56b7ca;
 }
