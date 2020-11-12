@@ -329,6 +329,7 @@ public class calController implements Initializable {
             setNewProcess(true);
         } else if (operation == Operation.LOGX) {
             inputField.setText(String.valueOf(computeAnswer()));
+            isBaseSet = false;
         } else {
             try {
                 secondNum = Double.parseDouble(inputField.getText());
