@@ -9,6 +9,7 @@ public enum Operation {
     FLOOR ("⌊ ⌋"),
     LOG("log"),
     LOGX("logxy"),
+    FACT("fact"),
     NONE (" ");
 
     private final String symbol;

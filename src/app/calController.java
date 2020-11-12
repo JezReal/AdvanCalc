@@ -321,15 +321,23 @@ public class calController implements Initializable {
         } else if (operation == Operation.CEIL) {
             inputField.setText(String.valueOf(computeAnswer()));
             setNewProcess(true);
+            operation = Operation.NONE;
         } else if (operation == Operation.FLOOR) {
             inputField.setText(String.valueOf(computeAnswer()));
             setNewProcess(true);
+            operation = Operation.NONE;
         } else if (operation == Operation.LOG) {
             inputField.setText(String.valueOf(computeAnswer()));
             setNewProcess(true);
+            operation = Operation.NONE;
         } else if (operation == Operation.LOGX) {
             inputField.setText(String.valueOf(computeAnswer()));
             isBaseSet = false;
+            setNewProcess(true);
+            operation = Operation.NONE;
+        } else if (operation == Operation.FACT) {
+            inputField.setText(String.valueOf(computeAnswer()));
+            setNewProcess(true);
         } else {
             try {
                 secondNum = Double.parseDouble(inputField.getText());
@@ -346,7 +354,9 @@ public class calController implements Initializable {
 
     @FXML
     void factorialButtonClick(ActionEvent event) {
-
+        valuesField.setText(inputField.getText() + "!");
+        operation = Operation.FACT;
+        processValues();
     }
 
     @FXML
@@ -482,6 +492,12 @@ public class calController implements Initializable {
             }
             valuesField.setText(String.format("log(%s)", firstNum));
 
+        } else if (operation == Operation.FACT) {
+            try {
+                firstNum = Double.parseDouble(inputField.getText());
+            } catch (NumberFormatException e) {
+                firstNum = 0;
+            }
         } else {
             try {
                 firstNum = Double.parseDouble(inputField.getText());
@@ -517,6 +533,9 @@ public class calController implements Initializable {
                 return Math.round(Math.log10(firstNum) * 100.0) / 100.0;
             case LOGX:
                 return Math.round((Math.log(logValue) / Math.log(logBase)) * 100.0) / 100.0;
+            case FACT:
+//                cast to int because a double will cause an overflow
+                return Math.round(getFactorial((int)firstNum) * 100.0) / 100.0;
             case NONE:
                 return 0;
         }
@@ -536,5 +555,15 @@ public class calController implements Initializable {
         valuesField.clear();
         inputField.clear();
         partialAnswerField.clear();
+    }
+
+    private static double getFactorial(int num) {
+        if (num == 0) {
+            return 0;
+        } else if (num == 1) {
+            return 1;
+        }
+
+        return num * getFactorial(num - 1);
     }
 }
