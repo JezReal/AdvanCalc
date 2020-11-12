@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.calController">
+<BorderPane id="root" maxHeight="-Infinity" maxWidth="-Infinity" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.calController">
    <top>
       <VBox fx:id="fieldHolder" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
          <children>
@@ -120,7 +120,7 @@
             <Button fx:id="logXofYButton" mnemonicParsing="false" onAction="#logXofYButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="advMathFnButton" text="logₓ y" GridPane.columnIndex="2" GridPane.rowIndex="4" />
             <Button fx:id="summationButton" mnemonicParsing="false" onAction="#summationButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="advMathFnButton" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <graphic>
-                  <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="27.0">
+                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="27.0">
                      <children>
                         <Label styleClass="sigma" text="Σ">
                            <font>
