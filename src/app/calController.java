@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.text.NumberFormat;
 import java.util.ResourceBundle;
 
 
@@ -120,10 +121,10 @@ public class calController implements Initializable {
     @FXML
     private Button equalsButton;
 
-    private double firstNum, secondNum;
+    private double firstNum, secondNum, logBase, logValue;
     private Operation operation;
     private boolean newProcess;
-
+    private boolean isBaseSet;
 
     @FXML
     void _0ButtonClick(ActionEvent event) {
@@ -239,6 +240,7 @@ public class calController implements Initializable {
 
     @FXML
     void acButtonClick(ActionEvent event) {
+        operation = Operation.NONE;
         clearFields();
         firstNum = 0;
         secondNum = 0;
@@ -253,6 +255,26 @@ public class calController implements Initializable {
     @FXML
     void ansButtonClick(ActionEvent event) {
 
+        if (operation == Operation.LOGX) {
+            if (isBaseSet) {
+                try {
+                    logValue = Double.parseDouble(inputField.getText());
+                    valuesField.setText("x: " + logBase + " y: " + logValue);
+                    inputField.clear();
+                } catch (NumberFormatException e) {
+                    logValue = 0;
+                }
+            } else {
+                try {
+                    logBase = Double.parseDouble(inputField.getText());
+                    valuesField.setText("x: " + logBase + " y: ");
+                    inputField.clear();
+                } catch (NumberFormatException e) {
+                    logBase = 0;
+                }
+                isBaseSet = true;
+            }
+        }
     }
 
     @FXML
@@ -305,8 +327,9 @@ public class calController implements Initializable {
         } else if (operation == Operation.LOG) {
             inputField.setText(String.valueOf(computeAnswer()));
             setNewProcess(true);
-        }
-        else {
+        } else if (operation == Operation.LOGX) {
+            inputField.setText(String.valueOf(computeAnswer()));
+        } else {
             try {
                 secondNum = Double.parseDouble(inputField.getText());
             } catch (NumberFormatException e) {
@@ -339,7 +362,8 @@ public class calController implements Initializable {
 
     @FXML
     void logXofYButtonClick(ActionEvent event) {
-
+        operation = Operation.LOGX;
+        valuesField.setText("x: y:");
     }
 
     @FXML
@@ -414,6 +438,10 @@ public class calController implements Initializable {
         secondNum = 0;
         operation = Operation.NONE;
         newProcess = false;
+        isBaseSet = false;
+        isBaseSet = false;
+        logBase = 0;
+        logValue = 0;
 
         inputField.textProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue.contains(".")) {
@@ -486,6 +514,8 @@ public class calController implements Initializable {
             case LOG:
 //                assume logarithm is of base 10 and not of base e
                 return Math.round(Math.log10(firstNum) * 100.0) / 100.0;
+            case LOGX:
+                return Math.round((Math.log(logValue) / Math.log(logBase)) * 100.0) / 100.0;
             case NONE:
                 return 0;
         }

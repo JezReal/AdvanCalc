@@ -8,6 +8,7 @@ public enum Operation {
     CEIL ("⌈ ⌉ "),
     FLOOR ("⌊ ⌋"),
     LOG("log"),
+    LOGX("logxy"),
     NONE (" ");
 
     private final String symbol;
