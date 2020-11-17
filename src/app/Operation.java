@@ -10,6 +10,7 @@ public enum Operation {
     LOG("log"),
     LOGX("logxy"),
     FACT("fact"),
+    CBRT("cbroot"),
     NONE (" ");
 
     private final String symbol;

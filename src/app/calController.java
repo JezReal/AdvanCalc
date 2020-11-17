@@ -125,6 +125,7 @@ public class calController implements Initializable {
     private Operation operation;
     private boolean newProcess;
     private boolean isBaseSet;
+    private boolean isRadicandSet;
 
     @FXML
     void _0ButtonClick(ActionEvent event) {
@@ -254,7 +255,6 @@ public class calController implements Initializable {
 
     @FXML
     void ansButtonClick(ActionEvent event) {
-
         if (operation == Operation.LOGX) {
             if (isBaseSet) {
                 try {
@@ -338,7 +338,13 @@ public class calController implements Initializable {
         } else if (operation == Operation.FACT) {
             inputField.setText(String.valueOf(computeAnswer()));
             setNewProcess(true);
-        } else {
+            operation = Operation.NONE;
+        } else if (operation == Operation.CBRT) {
+            inputField.setText(String.valueOf(computeAnswer()));
+            setNewProcess(true);
+            operation = Operation.NONE;
+        }
+        else {
             try {
                 secondNum = Double.parseDouble(inputField.getText());
             } catch (NumberFormatException e) {
@@ -440,7 +446,9 @@ public class calController implements Initializable {
 
     @FXML
     void yRootButtonClick(ActionEvent event) {
-
+        operation = Operation.CBRT;
+        processValues();
+        valuesField.setText("\u221B" + firstNum);
     }
 
     @FXML
@@ -492,7 +500,7 @@ public class calController implements Initializable {
             }
             valuesField.setText(String.format("log(%s)", firstNum));
 
-        } else if (operation == Operation.FACT) {
+        } else if (operation == Operation.FACT || operation == Operation.CBRT) {
             try {
                 firstNum = Double.parseDouble(inputField.getText());
             } catch (NumberFormatException e) {
@@ -502,7 +510,7 @@ public class calController implements Initializable {
             try {
                 firstNum = Double.parseDouble(inputField.getText());
             } catch (NumberFormatException ignored) {
-
+                firstNum = 0;
             }
             inputField.appendText(String.format(" %s ", operation.getSymbol()));
 
@@ -535,7 +543,9 @@ public class calController implements Initializable {
                 return Math.round((Math.log(logValue) / Math.log(logBase)) * 100.0) / 100.0;
             case FACT:
 //                cast to int because a double will cause an overflow
-                return Math.round(getFactorial((int)firstNum) * 100.0) / 100.0;
+                return Math.round(getFactorial((int) firstNum) * 100.0) / 100.0;
+            case CBRT:
+                return Math.round(Math.cbrt(firstNum) * 100.0) / 100.0;
             case NONE:
                 return 0;
         }
