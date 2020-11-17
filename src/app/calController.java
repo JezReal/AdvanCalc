@@ -77,7 +77,7 @@ public class calController implements Initializable {
     private Button pointButton;
 
     @FXML
-    private Button yRootButton;
+    private Button cubeRootButton;
 
     @FXML
     private Button squareRootButton;
@@ -445,10 +445,15 @@ public class calController implements Initializable {
     }
 
     @FXML
+<<<<<<< HEAD
     void yRootButtonClick(ActionEvent event) {
         operation = Operation.CBRT;
         processValues();
         valuesField.setText("\u221B" + firstNum);
+=======
+    void cubeRootButtonClick(ActionEvent event) {
+
+>>>>>>> 92f309c0fc38e08593fda04792db49db6efe0488
     }
 
     @FXML

@@ -57,7 +57,7 @@
             <Button fx:id="subtractButton" mnemonicParsing="false" onAction="#subtractButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="operatorButton" text="-" GridPane.columnIndex="7" GridPane.rowIndex="2" />
             <Button fx:id="addButton" mnemonicParsing="false" onAction="#addButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="operatorButton" text="+" GridPane.columnIndex="7" GridPane.rowIndex="3" />
             <Button fx:id="equalsButton" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#equalsButtonClick" text="=" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.rowIndex="4" />
-            <Button fx:id="yRootButton" mnemonicParsing="false" onAction="#yRootButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="advMathFnButton" text="ʸ√x" GridPane.columnIndex="3" />
+            <Button fx:id="cubeRootButton" mnemonicParsing="false" onAction="#cubeRootButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="advMathFnButton" text="³√x" GridPane.columnIndex="3" />
             <Button fx:id="squareRootButton" mnemonicParsing="false" onAction="#squareRootButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="advMathFnButton" text="²√x" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <Button fx:id="nestedPowButton" mnemonicParsing="false" onAction="#nestedPowButtonClick" prefHeight="70.0" prefWidth="70.0" styleClass="advMathFnButton" GridPane.columnIndex="3" GridPane.rowIndex="2">
                <graphic>
