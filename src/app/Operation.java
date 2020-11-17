@@ -9,8 +9,9 @@ public enum Operation {
     FLOOR ("⌊ ⌋"),
     LOG("log"),
     LOGX("logxy"),
-    FACT("fact"),
-    CBRT("cbroot"),
+    FACT("!"),
+    CBRT("\u221B"),
+    SQRT("\u221A"),
     NONE (" ");
 
     private final String symbol;
