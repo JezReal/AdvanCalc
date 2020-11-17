@@ -343,8 +343,10 @@ public class calController implements Initializable {
             inputField.setText(String.valueOf(computeAnswer()));
             setNewProcess(true);
             operation = Operation.NONE;
-        }
-        else {
+        } else if (operation == Operation.SQRT) {
+            inputField.setText(String.valueOf(computeAnswer()));
+            setNewProcess(true);
+        } else {
             try {
                 secondNum = Double.parseDouble(inputField.getText());
             } catch (NumberFormatException e) {
@@ -430,7 +432,9 @@ public class calController implements Initializable {
 
     @FXML
     void squareRootButtonClick(ActionEvent event) {
-
+        operation = Operation.SQRT;
+        processValues();
+        valuesField.setText("\u221A" + firstNum);
     }
 
     @FXML
@@ -505,7 +509,7 @@ public class calController implements Initializable {
             }
             valuesField.setText(String.format("log(%s)", firstNum));
 
-        } else if (operation == Operation.FACT || operation == Operation.CBRT) {
+        } else if (operation == Operation.FACT || operation == Operation.CBRT || operation == Operation.SQRT) {
             try {
                 firstNum = Double.parseDouble(inputField.getText());
             } catch (NumberFormatException e) {
@@ -551,6 +555,8 @@ public class calController implements Initializable {
                 return Math.round(getFactorial((int) firstNum) * 100.0) / 100.0;
             case CBRT:
                 return Math.round(Math.cbrt(firstNum) * 100.0) / 100.0;
+            case SQRT:
+                return Math.round(Math.sqrt(firstNum) * 100.0) / 100.0;
             case NONE:
                 return 0;
         }
