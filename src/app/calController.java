@@ -346,7 +346,9 @@ public class calController implements Initializable {
         } else if (operation == Operation.SQRT) {
             inputField.setText(String.valueOf(computeAnswer()));
             setNewProcess(true);
-        } else {
+        }
+//        used for simple operations such as addition, subtraction, etc..
+        else {
             try {
                 secondNum = Double.parseDouble(inputField.getText());
             } catch (NumberFormatException e) {
@@ -387,7 +389,8 @@ public class calController implements Initializable {
 
     @FXML
     void moduloButtonClick(ActionEvent event) {
-
+        operation = Operation.MOD;
+        processValues();
     }
 
     @FXML
@@ -515,6 +518,7 @@ public class calController implements Initializable {
             } catch (NumberFormatException e) {
                 firstNum = 0;
             }
+//            used for operation where the symbol is easy to print (addition, subtraction, etc...)
         } else {
             try {
                 firstNum = Double.parseDouble(inputField.getText());
@@ -557,6 +561,8 @@ public class calController implements Initializable {
                 return Math.round(Math.cbrt(firstNum) * 100.0) / 100.0;
             case SQRT:
                 return Math.round(Math.sqrt(firstNum) * 100.0) / 100.0;
+            case MOD:
+                return Math.round((firstNum % secondNum) * 100.0) / 100.0;
             case NONE:
                 return 0;
         }
