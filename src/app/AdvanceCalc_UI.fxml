@@ -21,21 +21,21 @@
    <center>
       <GridPane alignment="CENTER" BorderPane.alignment="CENTER">
          <columnConstraints>
-            <ColumnConstraints hgrow="ALWAYS" />
-            <ColumnConstraints hgrow="ALWAYS" />
-            <ColumnConstraints hgrow="ALWAYS" />
-            <ColumnConstraints hgrow="ALWAYS" minWidth="69.0" />
-            <ColumnConstraints hgrow="ALWAYS" />
-            <ColumnConstraints hgrow="ALWAYS" />
-            <ColumnConstraints hgrow="ALWAYS" />
-            <ColumnConstraints hgrow="ALWAYS" />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints minWidth="69.0" />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
          </columnConstraints>
          <rowConstraints>
-            <RowConstraints vgrow="ALWAYS" />
-            <RowConstraints vgrow="ALWAYS" />
-            <RowConstraints vgrow="ALWAYS" />
-            <RowConstraints vgrow="ALWAYS" />
-            <RowConstraints vgrow="ALWAYS" />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
          </rowConstraints>
          <children>
             <Button fx:id="delButton" mnemonicParsing="false" onAction="#delButtonClick" prefHeight="60.0" prefWidth="60.0" styleClass="redButton" text="DEL" GridPane.columnIndex="4" />
@@ -66,14 +66,7 @@
                         <Label text="X" />
                         <VBox alignment="CENTER">
                            <children>
-                              <Label styleClass="smallerLetter" text="y">
-                                 <font>
-                                    <Font size="10.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                              </Label>
+                              <Label styleClass="smallerLetter" text="y" />
                            </children>
                            <padding>
                               <Insets bottom="20.0" />
@@ -81,14 +74,7 @@
                         </VBox>
                         <VBox alignment="CENTER">
                            <children>
-                              <Label styleClass="smallerLetter" text="z">
-                                 <font>
-                                    <Font size="10.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                              </Label>
+                              <Label styleClass="smallerLetter" text="z" />
                            </children>
                            <padding>
                               <Insets bottom="30.0" />
@@ -105,11 +91,7 @@
                         <Label text="X" />
                         <VBox alignment="CENTER">
                            <children>
-                              <Label styleClass="smallerLetter" text="Y">
-                                 <font>
-                                    <Font size="11.0" />
-                                 </font>
-                              </Label>
+                              <Label styleClass="smallerLetter" text="Y" />
                            </children>
                            <padding>
                               <Insets bottom="20.0" />
@@ -128,18 +110,10 @@
                <graphic>
                   <HBox alignment="CENTER">
                      <children>
-                        <Label styleClass="sigma" text="Σ">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </Label>
+                        <Label styleClass="sigma" text="Σ" />
                         <VBox alignment="CENTER">
                            <children>
-                              <Label styleClass="smallLetter" text="a">
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                              </Label>
+                              <Label styleClass="smallLetter" text="a" />
                               <Label styleClass="smallLetter" text="b" />
                            </children>
                         </VBox>
@@ -154,33 +128,17 @@
                <graphic>
                   <HBox alignment="CENTER">
                      <children>
-                        <Label styleClass="sigma" text="Σ">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </Label>
+                        <Label styleClass="sigma" text="Σ" />
                         <VBox alignment="CENTER">
                            <children>
-                              <Label styleClass="smallLetter" text="a">
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                              </Label>
+                              <Label styleClass="smallLetter" text="a" />
                               <Label styleClass="smallLetter" text="b" />
                            </children>
                         </VBox>
-                        <Label styleClass="sigma" text="Σ">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </Label>
+                        <Label styleClass="sigma" text="Σ" />
                         <VBox alignment="CENTER">
                            <children>
-                              <Label styleClass="smallLetter" text="c">
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                              </Label>
+                              <Label styleClass="smallLetter" text="c" />
                               <Label styleClass="smallLetter" text="d" />
                            </children>
                         </VBox>
