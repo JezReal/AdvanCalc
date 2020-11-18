@@ -68,11 +68,11 @@ GridPane {
 }
 
 .button:hover {
-    -fx-background-color: #4b4e60;
+    -fx-background-color: #44475A, rgba(248, 248, 242, 0.04);
 }
 
 .button:pressed {
-    -fx-background-color: #575a6b;
+    -fx-background-color: #44475A, rgba(248, 248, 242, 0.10);
 }
 
 .button:disabled {
@@ -86,11 +86,11 @@ GridPane {
 }
 
 .operatorButton:hover {
-    -fx-background-color: #febd77;
+    -fx-background-color: #ffb86c, rgba(248, 248, 242, 0.08);
 }
 
 .operatorButton:pressed {
-    -fx-background-color: #fdcd97;
+    -fx-background-color: #ffb86c, rgba(248, 248, 242, 0.32);
 }
 
 #equalsButton {
@@ -99,11 +99,11 @@ GridPane {
 }
 
 #equalsButton:hover {
-    -fx-background-color: #5dfa84;
+    -fx-background-color: #50fa7b, rgba(248, 248, 242, 0.08);
 }
 
 #equalsButton:pressed {
-    -fx-background-color: #86f9a1;
+    -fx-background-color: #50fa7b, rgba(248, 248, 242, 0.32);
 }
 
 .redButton {
@@ -112,11 +112,11 @@ GridPane {
 }
 
 .redButton:hover {
-    -fx-background-color: #fe6261;
+    -fx-background-color: #ff5555, rgba(248, 248, 242, 0.08);
 }
 
 .redButton:pressed {
-    -fx-background-color: #fd8987;
+    -fx-background-color: #ff5555, rgba(248, 248, 242, 0.32);
 }
 
 .advMathFnButton {
@@ -126,11 +126,11 @@ GridPane {
 }
 
 .advMathFnButton:hover {
-    -fx-background-color: #94eafc;
+    -fx-background-color: #8be9fd, rgba(248, 248, 242, 0.08);
 }
 
 .advMathFnButton:pressed {
-    -fx-background-color: #aeeef9;
+    -fx-background-color: #8be9fd, rgba(248, 248, 242, 0.32);
 }
 
 .advMathFnButton:disabled {
