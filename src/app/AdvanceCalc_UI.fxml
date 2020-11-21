@@ -3,7 +3,6 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
 <BorderPane id="root" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.calController">
    <top>
@@ -40,7 +39,7 @@
          <children>
             <Button fx:id="delButton" mnemonicParsing="false" onAction="#delButtonClick" prefHeight="60.0" prefWidth="60.0" styleClass="redButton" text="DEL" GridPane.columnIndex="4" />
             <Button fx:id="acButton" mnemonicParsing="false" onAction="#acButtonClick" prefHeight="60.0" prefWidth="60.0" styleClass="redButton" text="AC" GridPane.columnIndex="5" />
-            <Button fx:id="negateButton" mnemonicParsing="false" onAction="#negateButtonClick" prefHeight="60.0" prefWidth="60.0" text="±" GridPane.columnIndex="6" />
+            <Button fx:id="negateButton" mnemonicParsing="false" onAction="#negateButtonClick" prefHeight="60.0" prefWidth="60.0" text="+/-" GridPane.columnIndex="6" />
             <Button fx:id="_9Button" mnemonicParsing="false" onAction="#_9ButtonClick" prefHeight="60.0" prefWidth="60.0" styleClass="numberButton" text="9" GridPane.columnIndex="6" GridPane.rowIndex="1" />
             <Button fx:id="_8Button" mnemonicParsing="false" onAction="#_8ButtonClick" prefHeight="60.0" prefWidth="60.0" styleClass="numberButton" text="8" GridPane.columnIndex="5" GridPane.rowIndex="1" />
             <Button fx:id="_7Button" mnemonicParsing="false" onAction="#_7ButtonClick" prefHeight="60.0" prefWidth="60.0" styleClass="numberButton" text="7" GridPane.columnIndex="4" GridPane.rowIndex="1" />
