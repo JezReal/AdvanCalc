@@ -22,22 +22,23 @@ GridPane {
 /*** Context Menu ***/
 
 .context-menu {
+    -fx-min-width: 100px;
     -fx-background-color: #282a36;
-    -fx-background-radius: 6px;
+    -fx-background-radius: 8px;
     -fx-padding: 6px 0;
 }
 
 .context-menu .separator {
-    -fx-padding: 4px 0;
+    -fx-padding: 3px 0;
 }
 
 .context-menu .separator:horizontal .line {
     -fx-border-color: #44475a transparent transparent transparent;
-    -fx-border-insets: 1 0 0 0;
+    -fx-border-insets: 1px 0 0 0;
 }
 
 .menu-item {
-    -fx-padding: 2px 10px;
+    -fx-padding: 1px 18px;
 }
 
 .menu-item:focused {
@@ -54,7 +55,7 @@ GridPane {
 
 .menu-item .label {
     -fx-text-fill: #F8F8F2;
-    -fx-font-size: 16px;
+    -fx-font-size: 14px;
     -fx-font-weight: normal;
     -fx-font-family: "Barlow";
 }
