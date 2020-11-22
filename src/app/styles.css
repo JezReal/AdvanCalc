@@ -74,7 +74,7 @@ GridPane {
 
 #fieldHolder {
     -fx-background-color: #44475A;
-    -fx-background-radius: 23px;
+    -fx-background-radius: 18px;
 }
 
 .text-field {
@@ -111,9 +111,9 @@ GridPane {
 .button {
     -fx-text-fill: #f8f8f2;
     -fx-font-family: "Barlow";
-    -fx-font-size: 23px;
+    -fx-font-size: 25px;
     -fx-background-color: #44475A;
-    -fx-background-radius: 23px;
+    -fx-background-radius: 12px;
     -fx-background-insets: 0;
     -fx-padding: 0;
 }
