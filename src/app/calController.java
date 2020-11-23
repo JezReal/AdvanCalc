@@ -346,9 +346,19 @@ public class calController implements Initializable {
         } else if (operation == Operation.SQRT) {
             inputField.setText(String.valueOf(computeAnswer()));
             setNewProcess(true);
-        }
+            operation = Operation.NONE;
+//        } else if (operation == Operation.EXP) {
+////            TODO: move parsing of secondNum to another method maybe
+//            try {
+//
+//            } catch (NumberFormatException e) {
+//                secondNum = 0;
+//            }
+//            inputField.setText(String.valueOf(computeAnswer()));
+//            setNewProcess(true);
+//            operation = Operation.NONE;
+        } else {
 //        used for simple operations such as addition, subtraction, etc..
-        else {
             try {
                 secondNum = Double.parseDouble(inputField.getText());
             } catch (NumberFormatException e) {
@@ -430,7 +440,9 @@ public class calController implements Initializable {
 
     @FXML
     void powOfYButtonClick(ActionEvent event) {
-
+        operation = Operation.EXP;
+        processValues();
+        valuesField.setText(firstNum + "^");
     }
 
     @FXML
@@ -485,7 +497,7 @@ public class calController implements Initializable {
 
     //  This method is responsible for processing the input values for calculation
     private void processValues() {
-
+//TODO: move setTexts to a different method preferably their respective button click
         if (operation == Operation.CEIL) {
 //            initialize firstNum to 0 if user clicks on ceil on operation
 //            without entering any input
@@ -518,8 +530,8 @@ public class calController implements Initializable {
             } catch (NumberFormatException e) {
                 firstNum = 0;
             }
-//            used for operation where the symbol is easy to print (addition, subtraction, etc...)
         } else {
+//        used for operation where the symbol is easy to print (addition, subtraction, etc...)
             try {
                 firstNum = Double.parseDouble(inputField.getText());
             } catch (NumberFormatException ignored) {
@@ -563,6 +575,8 @@ public class calController implements Initializable {
                 return Math.round(Math.sqrt(firstNum) * 100.0) / 100.0;
             case MOD:
                 return Math.round((firstNum % secondNum) * 100.0) / 100.0;
+            case EXP:
+                return Math.round(Math.pow(firstNum, secondNum) * 100.0) / 100.0;
             case NONE:
                 return 0;
         }

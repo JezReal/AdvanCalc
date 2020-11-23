@@ -13,6 +13,7 @@ public enum Operation {
     CBRT("\u221B"),
     SQRT("\u221A"),
     MOD("%"),
+    EXP("^"),
     NONE (" ");
 
     private final String symbol;
