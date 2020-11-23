@@ -347,18 +347,14 @@ public class calController implements Initializable {
             inputField.setText(String.valueOf(computeAnswer()));
             setNewProcess(true);
             operation = Operation.NONE;
-//        } else if (operation == Operation.EXP) {
-////            TODO: move parsing of secondNum to another method maybe
-//            try {
-//
-//            } catch (NumberFormatException e) {
-//                secondNum = 0;
-//            }
-//            inputField.setText(String.valueOf(computeAnswer()));
-//            setNewProcess(true);
-//            operation = Operation.NONE;
-        } else {
-//        used for simple operations such as addition, subtraction, etc..
+        } else if (operation == Operation.SQR) {
+            inputField.setText(String.valueOf(computeAnswer()));
+            setNewProcess(true);
+            operation = Operation.NONE;
+        }
+        else {
+//            TODO: move parsing of secondNum to another method maybe
+//        used for simple operations that involve two operators such as addition, subtraction, etc..
             try {
                 secondNum = Double.parseDouble(inputField.getText());
             } catch (NumberFormatException e) {
@@ -435,7 +431,9 @@ public class calController implements Initializable {
 
     @FXML
     void powOf2ButtonClick(ActionEvent event) {
-
+        operation = Operation.SQR;
+        processValues();
+        valuesField.setText(firstNum + "\u00B2");
     }
 
     @FXML
@@ -524,14 +522,17 @@ public class calController implements Initializable {
             }
             valuesField.setText(String.format("log(%s)", firstNum));
 
-        } else if (operation == Operation.FACT || operation == Operation.CBRT || operation == Operation.SQRT) {
+        } else if (operation == Operation.FACT || operation == Operation.CBRT || operation == Operation.SQRT || operation == Operation.SQR) {
             try {
                 firstNum = Double.parseDouble(inputField.getText());
             } catch (NumberFormatException e) {
                 firstNum = 0;
             }
         } else {
+//        TODO: optimize this
 //        used for operation where the symbol is easy to print (addition, subtraction, etc...)
+//        refer to Operation enum to see those covered by this method
+//        also used for those with two operators
             try {
                 firstNum = Double.parseDouble(inputField.getText());
             } catch (NumberFormatException ignored) {
@@ -577,6 +578,8 @@ public class calController implements Initializable {
                 return Math.round((firstNum % secondNum) * 100.0) / 100.0;
             case EXP:
                 return Math.round(Math.pow(firstNum, secondNum) * 100.0) / 100.0;
+            case SQR:
+                return Math.round(Math.pow(firstNum, 2) * 100.0) / 100.0;
             case NONE:
                 return 0;
         }

@@ -14,6 +14,7 @@ public enum Operation {
     SQRT("\u221A"),
     MOD("%"),
     EXP("^"),
+    SQR("square"),
     NONE (" ");
 
     private final String symbol;
