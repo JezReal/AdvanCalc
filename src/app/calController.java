@@ -121,11 +121,10 @@ public class calController implements Initializable {
     @FXML
     private Button equalsButton;
 
-    private double firstNum, secondNum, logBase, logValue;
+    private double firstNum, secondNum, logBase, logValue, expBase;
     private Operation operation;
     private boolean newProcess;
-    private boolean isBaseSet;
-    private boolean isRadicandSet;
+    private boolean isBaseSet, isXSet, isYSet;
 
     @FXML
     void _0ButtonClick(ActionEvent event) {
@@ -274,6 +273,37 @@ public class calController implements Initializable {
                 }
                 isBaseSet = true;
             }
+        } else if (operation == Operation.NSTPOW) {
+            if (!isBaseSet && !isXSet && !isYSet) {
+                try {
+                    expBase = Double.parseDouble(inputField.getText());
+
+                } catch (NumberFormatException e) {
+                   expBase = 0;
+                }
+
+                valuesField.setText("x: " + expBase + " y: z:");
+
+                isBaseSet = true;
+            } else if (isBaseSet && !isXSet && !isYSet) {
+                try {
+                    firstNum = Double.parseDouble(inputField.getText());
+
+                } catch (NumberFormatException e) {
+                    firstNum = 0;
+                }
+                valuesField.setText("x: " + expBase + " y: " + firstNum + " z: ");
+                isXSet = true;
+            } else {
+                try {
+                    secondNum = Double.parseDouble(inputField.getText());
+
+                } catch (NumberFormatException e) {
+                    secondNum = 0;
+                }
+                valuesField.setText("x: " + expBase + " y: " + firstNum + " z: " + secondNum);
+                isYSet = true;
+            }
         }
     }
 
@@ -351,6 +381,13 @@ public class calController implements Initializable {
             inputField.setText(String.valueOf(computeAnswer()));
             setNewProcess(true);
             operation = Operation.NONE;
+        } else if (operation == Operation.NSTPOW) {
+            inputField.setText(String.valueOf(computeAnswer()));
+            setNewProcess(true);
+            isBaseSet = false;
+            isXSet = false;
+            isYSet = false;
+            operation = Operation.NONE;
         }
         else {
 //            TODO: move parsing of secondNum to another method maybe
@@ -416,7 +453,8 @@ public class calController implements Initializable {
 
     @FXML
     void nestedPowButtonClick(ActionEvent event) {
-
+        operation = Operation.NSTPOW;
+        valuesField.setText("x: y: z: ");
     }
 
     @FXML
@@ -479,7 +517,6 @@ public class calController implements Initializable {
         secondNum = 0;
         operation = Operation.NONE;
         newProcess = false;
-        isBaseSet = false;
         isBaseSet = false;
         logBase = 0;
         logValue = 0;
@@ -580,6 +617,8 @@ public class calController implements Initializable {
                 return Math.round(Math.pow(firstNum, secondNum) * 100.0) / 100.0;
             case SQR:
                 return Math.round(Math.pow(firstNum, 2) * 100.0) / 100.0;
+            case NSTPOW:
+                return Math.round(Math.pow(expBase, (firstNum * secondNum)) * 100.0) / 100.0;
             case NONE:
                 return 0;
         }

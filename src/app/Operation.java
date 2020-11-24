@@ -15,6 +15,7 @@ public enum Operation {
     MOD("%"),
     EXP("^"),
     SQR("square"),
+    NSTPOW("nested pow"),
     NONE (" ");
 
     private final String symbol;
