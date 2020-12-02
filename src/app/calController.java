@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 
 import java.net.URL;
 import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
@@ -128,6 +129,8 @@ public class calController implements Initializable {
     //    used in summations
     private double upperBound, lowerBound, outerLowerBound, outerUpperBound, innerLowerBound, innerUpperBound;
     private Operation operation;
+    private String expression;
+
     private boolean newProcess;
     //    used for checking if values are set in logarithm
     private boolean isBaseSet;
@@ -267,6 +270,11 @@ public class calController implements Initializable {
         isOuterLowerBoundSet = false;
         isInnerUpperBoundSet = false;
         isInnerLowerBoundSet = false;
+
+//        reset summation values
+        lowerBound = 0;
+        upperBound = 0;
+        expression = "";
     }
 
     @FXML
@@ -341,7 +349,7 @@ public class calController implements Initializable {
 
                 }
 
-                valuesField.setText("a: " + upperBound + " b: exp: ");
+                valuesField.setText("upperB: " + upperBound + " lowerB: exp: ");
                 isUpperBoundSet = true;
             } else if (!isLowerBoundSet) {
                 try {
@@ -351,10 +359,11 @@ public class calController implements Initializable {
 
                 }
 
-                valuesField.setText("a: " + upperBound + " b: " + lowerBound + " exp: ");
+                valuesField.setText("upperB: " + upperBound + " lowerB: " + lowerBound + " exp: ");
                 isLowerBoundSet = true;
             } else {
-                valuesField.setText("a: " + upperBound + " b: " + lowerBound + " exp: " + inputField.getText());
+                expression = inputField.getText();
+                valuesField.setText("upperB: " + upperBound + " lowerB: " + lowerBound + " exp: " + inputField.getText());
 
                 inputField.clear();
             }
@@ -446,6 +455,17 @@ public class calController implements Initializable {
             isXSet = false;
             isYSet = false;
             operation = Operation.NONE;
+        } else if (operation == Operation.SUMM) {
+            inputField.setText(String.valueOf(computeAnswer()));
+            setNewProcess(true);
+
+            isLowerBoundSet = false;
+            isUpperBoundSet = false;
+            isExpressionSet = false;
+            lowerBound = 0;
+            upperBound = 0;
+            expression = "";
+            operation = Operation.NONE;
         } else {
 //            TODO: move parsing of secondNum to another method maybe
 //        used for simple operations that involve two operators such as addition, subtraction, etc..
@@ -499,7 +519,7 @@ public class calController implements Initializable {
             operation = Operation.MULTIPLY;
             processValues();
         } else {
-            inputField.appendText("x");
+            inputField.appendText("*");
         }
     }
 
@@ -562,7 +582,7 @@ public class calController implements Initializable {
     @FXML
     void summationButtonClick(ActionEvent event) {
         operation = Operation.SUMM;
-        valuesField.setText("a: b: exp: ");
+        valuesField.setText("upperB: lowerB: exp: ");
     }
 
     @FXML
@@ -627,7 +647,7 @@ public class calController implements Initializable {
                 pointButton.setDisable(false);
             }
 
-            if(newValue.contains("+") ||newValue.contains("-") || newValue.contains("*") || newValue.contains("/")) {
+            if (newValue.contains("+") || newValue.contains("-") || newValue.contains("*") || newValue.contains("/")) {
                 setButtonAbility(true);
             } else {
                 setButtonAbility(false);
@@ -758,8 +778,55 @@ public class calController implements Initializable {
     }
 
     private double computeSummation() {
+//        TODO: optimize this
+//        operation in the expression
+        Operation subOperation;
+        ArrayList<Double> result = new ArrayList<>();
+        double sum = 0;
+//        convert to string to not get the ascii value of the character
+//        assume that the variable will always be at the beginning
+        double num = Double.parseDouble(String.valueOf(expression.charAt(expression.length() - 1)));
 
-        return 0;
+
+        if (expression.contains("+")) {
+            subOperation = Operation.ADD;
+        } else if (expression.contains("-")) {
+            subOperation = Operation.SUBTRACT;
+        } else if (expression.contains("*")) {
+            subOperation = Operation.MULTIPLY;
+        } else if (expression.contains("/")) {
+            subOperation = Operation.DIVIDE;
+        } else {
+            return -1;
+        }
+
+//        TODO: error message does not show
+        if (lowerBound > upperBound) {
+            inputField.setText("Upper bound must be greater than lower bound!");
+        }
+
+        for (int i = (int) lowerBound; i <= upperBound; i++) {
+            switch(subOperation) {
+                case ADD:
+                    result.add(i + num);
+                    break;
+                case SUBTRACT:
+                    result.add(i - num);
+                    break;
+                case MULTIPLY:
+                    result.add(i * num);
+                    break;
+                case DIVIDE:
+                    result.add(i / num);
+                    break;
+            }
+        }
+
+        for (double i : result) {
+            sum += i;
+        }
+
+        return sum;
     }
 
     private void setButtonAbility(boolean bool) {
