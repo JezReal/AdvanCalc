@@ -3,7 +3,7 @@ package app;
 public enum Operation {
     ADD ("+"),
     SUBTRACT ("-"),
-    MULTIPLY ("x"),
+    MULTIPLY ("*"),
     DIVIDE ("÷"),
     CEIL ("⌈ ⌉ "),
     FLOOR ("⌊ ⌋"),
@@ -16,6 +16,7 @@ public enum Operation {
     EXP("^"),
     SQR("square"),
     NSTPOW("nested pow"),
+    SUMM("\u2211"),
     NONE (" ");
 
     private final String symbol;

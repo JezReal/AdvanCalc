@@ -121,10 +121,22 @@ public class calController implements Initializable {
     @FXML
     private Button equalsButton;
 
-    private double firstNum, secondNum, logBase, logValue, expBase;
+    //    used in simple two number operations
+    private double firstNum, secondNum;
+    //    used in logarithm
+    private double logBase, logValue, expBase;
+    //    used in summations
+    private double upperBound, lowerBound, outerLowerBound, outerUpperBound, innerLowerBound, innerUpperBound;
     private Operation operation;
     private boolean newProcess;
-    private boolean isBaseSet, isXSet, isYSet;
+    //    used for checking if values are set in logarithm
+    private boolean isBaseSet;
+
+    //    used for checking if values in nested power are set
+    private boolean isXSet, isYSet;
+    //    used for checking if bounds are set in summation
+    private boolean isUpperBoundSet, isLowerBoundSet, isOuterUpperBoundSet, isOuterLowerBoundSet, isInnerUpperBoundSet, isInnerLowerBoundSet, isExpressionSet;
+
 
     @FXML
     void _0ButtonClick(ActionEvent event) {
@@ -244,12 +256,28 @@ public class calController implements Initializable {
         clearFields();
         firstNum = 0;
         secondNum = 0;
+//        reset booleans as well
+        isBaseSet = false;
+        isXSet = false;
+        isYSet = false;
+
+        isUpperBoundSet = false;
+        isLowerBoundSet = false;
+        isOuterUpperBoundSet = false;
+        isOuterLowerBoundSet = false;
+        isInnerUpperBoundSet = false;
+        isInnerLowerBoundSet = false;
     }
 
     @FXML
     void addButtonClick(ActionEvent event) {
-        operation = Operation.ADD;
-        processValues();
+        if (operation == Operation.NONE) {
+            operation = Operation.ADD;
+            processValues();
+        } else {
+            inputField.appendText("+");
+        }
+
     }
 
     @FXML
@@ -279,7 +307,7 @@ public class calController implements Initializable {
                     expBase = Double.parseDouble(inputField.getText());
 
                 } catch (NumberFormatException e) {
-                   expBase = 0;
+                    expBase = 0;
                 }
 
                 valuesField.setText("x: " + expBase + " y: z:");
@@ -304,6 +332,32 @@ public class calController implements Initializable {
                 valuesField.setText("x: " + expBase + " y: " + firstNum + " z: " + secondNum);
                 isYSet = true;
             }
+        } else if (operation == Operation.SUMM) {
+            if (!isUpperBoundSet) {
+                try {
+                    upperBound = Double.parseDouble(inputField.getText());
+                    inputField.clear();
+                } catch (NumberFormatException ignored) {
+
+                }
+
+                valuesField.setText("a: " + upperBound + " b: exp: ");
+                isUpperBoundSet = true;
+            } else if (!isLowerBoundSet) {
+                try {
+                    lowerBound = Double.parseDouble(inputField.getText());
+                    inputField.clear();
+                } catch (NumberFormatException ignored) {
+
+                }
+
+                valuesField.setText("a: " + upperBound + " b: " + lowerBound + " exp: ");
+                isLowerBoundSet = true;
+            } else {
+                valuesField.setText("a: " + upperBound + " b: " + lowerBound + " exp: " + inputField.getText());
+
+                inputField.clear();
+            }
         }
     }
 
@@ -322,8 +376,12 @@ public class calController implements Initializable {
 
     @FXML
     void divideButtonClick(ActionEvent event) {
-        operation = Operation.DIVIDE;
-        processValues();
+        if (operation == Operation.NONE) {
+            operation = Operation.DIVIDE;
+            processValues();
+        } else {
+            inputField.appendText("/");
+        }
     }
 
     @FXML
@@ -388,8 +446,7 @@ public class calController implements Initializable {
             isXSet = false;
             isYSet = false;
             operation = Operation.NONE;
-        }
-        else {
+        } else {
 //            TODO: move parsing of secondNum to another method maybe
 //        used for simple operations that involve two operators such as addition, subtraction, etc..
             try {
@@ -438,8 +495,12 @@ public class calController implements Initializable {
 
     @FXML
     void multiplyButtonClick(ActionEvent event) {
-        operation = Operation.MULTIPLY;
-        processValues();
+        if (operation == Operation.NONE) {
+            operation = Operation.MULTIPLY;
+            processValues();
+        } else {
+            inputField.appendText("x");
+        }
     }
 
     @FXML
@@ -490,13 +551,18 @@ public class calController implements Initializable {
 
     @FXML
     void subtractButtonClick(ActionEvent event) {
-        operation = Operation.SUBTRACT;
-        processValues();
+        if (operation == Operation.NONE) {
+            operation = Operation.SUBTRACT;
+            processValues();
+        } else {
+            inputField.appendText("-");
+        }
     }
 
     @FXML
     void summationButtonClick(ActionEvent event) {
-
+        operation = Operation.SUMM;
+        valuesField.setText("a: b: exp: ");
     }
 
     @FXML
@@ -512,20 +578,59 @@ public class calController implements Initializable {
     }
 
     @FXML
+    void xButtonClick(ActionEvent event) {
+        if (operation == Operation.SUMM) {
+            inputField.appendText("x");
+        }
+    }
+
+    @FXML
+    void yButtonClick(ActionEvent event) {
+        if (operation == Operation.SUMM) {
+            inputField.appendText("y");
+        }
+    }
+
+    @FXML
     public void initialize(URL url, ResourceBundle rb) {
+//        TODO: remove setting of values to 0 upon checking exception because they are initialized to 0 anyway
+//        initialize for two number operations
         firstNum = 0;
         secondNum = 0;
         operation = Operation.NONE;
         newProcess = false;
+
+//        initialize for log operation
         isBaseSet = false;
         logBase = 0;
         logValue = 0;
+
+//        initialize for summation operation
+        lowerBound = 0;
+        upperBound = 0;
+        outerLowerBound = 0;
+        outerUpperBound = 0;
+        innerLowerBound = 0;
+        innerUpperBound = 0;
+
+        isUpperBoundSet = false;
+        isLowerBoundSet = false;
+        isOuterUpperBoundSet = false;
+        isOuterLowerBoundSet = false;
+        isInnerUpperBoundSet = false;
+        isInnerLowerBoundSet = false;
 
         inputField.textProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue.contains(".")) {
                 pointButton.setDisable(true);
             } else {
                 pointButton.setDisable(false);
+            }
+
+            if(newValue.contains("+") ||newValue.contains("-") || newValue.contains("*") || newValue.contains("/")) {
+                setButtonAbility(true);
+            } else {
+                setButtonAbility(false);
             }
         });
     }
@@ -619,6 +724,8 @@ public class calController implements Initializable {
                 return Math.round(Math.pow(firstNum, 2) * 100.0) / 100.0;
             case NSTPOW:
                 return Math.round(Math.pow(expBase, (firstNum * secondNum)) * 100.0) / 100.0;
+            case SUMM:
+                return computeSummation();
             case NONE:
                 return 0;
         }
@@ -640,7 +747,7 @@ public class calController implements Initializable {
         partialAnswerField.clear();
     }
 
-    private static double getFactorial(int num) {
+    private double getFactorial(int num) {
         if (num == 0) {
             return 0;
         } else if (num == 1) {
@@ -648,5 +755,17 @@ public class calController implements Initializable {
         }
 
         return num * getFactorial(num - 1);
+    }
+
+    private double computeSummation() {
+
+        return 0;
+    }
+
+    private void setButtonAbility(boolean bool) {
+        addButton.setDisable(bool);
+        subtractButton.setDisable(bool);
+        multiplyButton.setDisable(bool);
+        divideButton.setDisable(bool);
     }
 }
