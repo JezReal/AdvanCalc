@@ -144,6 +144,10 @@ GridPane {
     -fx-background-color: #ffb86c, rgba(248, 248, 242, 0.40);
 }
 
+.operatorButton:disabled {
+    -fx-background-color: rgba(255, 184, 108, 0.38);
+}
+
 #equalsButton {
     -fx-text-fill: #282a36;
     -fx-background-color: #50fa7b;
