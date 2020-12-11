@@ -1,10 +1,10 @@
 @font-face {
-    font-family: Barlow;
+    font-family: 'Barlow';
     src: url('/resources/fonts/Barlow.ttf');
 }
 
 @font-face {
-    font-family: Barlow-Bold;
+    font-family: 'Barlow';
     src: url('/resources/fonts/Barlow-Bold.ttf');
 }
 
