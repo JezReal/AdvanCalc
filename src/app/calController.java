@@ -456,8 +456,16 @@ public class calController implements Initializable {
             isYSet = false;
             operation = Operation.NONE;
         } else if (operation == Operation.SUMM) {
-            inputField.setText(String.valueOf(computeAnswer()));
+
             setNewProcess(true);
+
+            double ans = computeAnswer();
+
+            if (ans == -1) {
+                inputField.setText("Invalid input!");
+            } else {
+                inputField.setText(String.valueOf(computeAnswer()));
+            }
 
             isLowerBoundSet = false;
             isUpperBoundSet = false;
@@ -802,11 +810,11 @@ public class calController implements Initializable {
 
 //        TODO: error message does not show
         if (lowerBound > upperBound) {
-            inputField.setText("Upper bound must be greater than lower bound!");
+            return -1;
         }
 
         for (int i = (int) lowerBound; i <= upperBound; i++) {
-            switch(subOperation) {
+            switch (subOperation) {
                 case ADD:
                     result.add(i + num);
                     break;
