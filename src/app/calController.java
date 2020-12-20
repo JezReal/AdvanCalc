@@ -367,6 +367,56 @@ public class calController implements Initializable {
 
                 inputField.clear();
             }
+        } else if (operation == Operation.NSUMM) {
+            if (!isOuterUpperBoundSet) {
+                try {
+                    outerUpperBound = Double.parseDouble(inputField.getText());
+                    inputField.clear();
+                } catch (NumberFormatException ignored) {
+
+                }
+
+                valuesField.setText("outerUpperB: " + outerUpperBound + " outerLowerB: innerUpperB: innerLowerB: exp: ");
+                isOuterUpperBoundSet = true;
+
+            } else if (!isOuterLowerBoundSet) {
+                try {
+                    outerLowerBound = Double.parseDouble(inputField.getText());
+                    inputField.clear();
+                } catch (NumberFormatException ignored) {
+
+                }
+
+                valuesField.setText("outerUpperB: " + outerUpperBound + " outerLowerB: " + outerLowerBound + " innerUpperB: innerLowerB: exp: ");
+                isOuterLowerBoundSet = true;
+
+            } else if (!isInnerUpperBoundSet) {
+                try {
+                    innerUpperBound = Double.parseDouble(inputField.getText());
+                    inputField.clear();
+                } catch (NumberFormatException ignored) {
+
+                }
+
+                valuesField.setText("outerUpperB: " + outerUpperBound + " outerLowerB: " + outerLowerBound + " innerUpperB: " + innerUpperBound + " innerLowerB: exp: ");
+                isInnerUpperBoundSet = true;
+
+            } else if (!isInnerLowerBoundSet) {
+                try {
+                    innerLowerBound = Double.parseDouble(inputField.getText());
+                    inputField.clear();
+                } catch (NumberFormatException ignored) {
+
+                }
+
+                valuesField.setText("outerUpperB: " + outerUpperBound + " outerLowerB: " + outerLowerBound + " innerUpperB: " + innerUpperBound + "  innerLowerB: " + innerLowerBound + " exp: ");
+                isInnerLowerBoundSet = true;
+            } else {
+                expression = inputField.getText();
+                valuesField.setText("outerUpperB: " + outerUpperBound + " outerLowerB: " + outerLowerBound + " innerUpperB: " + innerUpperBound + "  innerLowerB: " + innerLowerBound + " exp: " + expression);
+
+                inputField.clear();
+            }
         }
     }
 
@@ -455,7 +505,7 @@ public class calController implements Initializable {
             isXSet = false;
             isYSet = false;
             operation = Operation.NONE;
-        } else if (operation == Operation.SUMM) {
+        } else if (operation == Operation.SUMM || operation == Operation.NSUMM) {
 
             setNewProcess(true);
 
@@ -467,11 +517,24 @@ public class calController implements Initializable {
                 inputField.setText(String.valueOf(computeAnswer()));
             }
 
-            isLowerBoundSet = false;
-            isUpperBoundSet = false;
-            isExpressionSet = false;
-            lowerBound = 0;
-            upperBound = 0;
+            if (operation == Operation.SUMM) {
+                isLowerBoundSet = false;
+                isUpperBoundSet = false;
+                isExpressionSet = false;
+                lowerBound = 0;
+                upperBound = 0;
+            } else {
+                isOuterLowerBoundSet = false;
+                isOuterUpperBoundSet = false;
+                isInnerLowerBoundSet = false;
+                isInnerUpperBoundSet = false;
+
+                outerLowerBound = 0;
+                outerUpperBound = 0;
+                innerLowerBound = 0;
+                innerUpperBound = 0;
+            }
+
             expression = "";
             operation = Operation.NONE;
         } else {
@@ -548,7 +611,8 @@ public class calController implements Initializable {
 
     @FXML
     void nestedSummationButtonClick(ActionEvent event) {
-
+        operation = Operation.NSUMM;
+        valuesField.setText("outerUpperB: outerLowerB: innerUpperB: innerLowerB: exp: ");
     }
 
     @FXML
@@ -607,14 +671,14 @@ public class calController implements Initializable {
 
     @FXML
     void xButtonClick(ActionEvent event) {
-        if (operation == Operation.SUMM) {
+        if (operation == Operation.SUMM || operation == Operation.NSUMM) {
             inputField.appendText("x");
         }
     }
 
     @FXML
     void yButtonClick(ActionEvent event) {
-        if (operation == Operation.SUMM) {
+        if (operation == Operation.SUMM || operation == Operation.NSUMM) {
             inputField.appendText("y");
         }
     }
@@ -754,6 +818,8 @@ public class calController implements Initializable {
                 return Math.round(Math.pow(expBase, (firstNum * secondNum)) * 100.0) / 100.0;
             case SUMM:
                 return computeSummation();
+            case NSUMM:
+                return computeNestedSummation();
             case NONE:
                 return 0;
         }
@@ -831,6 +897,54 @@ public class calController implements Initializable {
         }
 
         for (double i : result) {
+            sum += i;
+        }
+
+        return sum;
+    }
+
+    private double computeNestedSummation() {
+
+        Operation subOperation;
+        ArrayList<Double> nums = new ArrayList<>();
+        double sum = 0;
+
+        if (outerLowerBound > outerUpperBound || innerLowerBound > innerUpperBound) {
+            return -1;
+        }
+
+        if (expression.contains("+")) {
+            subOperation = Operation.ADD;
+        } else if (expression.contains("-")) {
+            subOperation = Operation.SUBTRACT;
+        } else if (expression.contains("*")) {
+            subOperation = Operation.MULTIPLY;
+        } else if (expression.contains("/")) {
+            subOperation = Operation.DIVIDE;
+        } else {
+            return -1;
+        }
+
+        for (int i = (int) outerLowerBound; i <= (int) outerUpperBound; i++) {
+            for (int j = (int) innerLowerBound; j <= (int) innerUpperBound; j++) {
+                switch (subOperation) {
+                    case ADD:
+                        nums.add((double) i + (double) j);
+                        break;
+                    case SUBTRACT:
+                        nums.add((double) i - (double) j);
+                        break;
+                    case MULTIPLY:
+                        nums.add((double) i * (double) j);
+                        break;
+                    case DIVIDE:
+                        nums.add((double) i / (double) j);
+                        break;
+                }
+            }
+        }
+
+        for (double i : nums) {
             sum += i;
         }
 

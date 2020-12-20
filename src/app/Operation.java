@@ -17,6 +17,7 @@ public enum Operation {
     SQR("square"),
     NSTPOW("nested pow"),
     SUMM("\u2211"),
+    NSUMM(" nested summation"),
     NONE (" ");
 
     private final String symbol;
