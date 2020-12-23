@@ -538,7 +538,6 @@ public class calController implements Initializable {
             expression = "";
             operation = Operation.NONE;
         } else {
-//            TODO: move parsing of secondNum to another method maybe
 //        used for simple operations that involve two operators such as addition, subtraction, etc..
             try {
                 secondNum = Double.parseDouble(inputField.getText());
@@ -685,7 +684,6 @@ public class calController implements Initializable {
 
     @FXML
     public void initialize(URL url, ResourceBundle rb) {
-//        TODO: remove setting of values to 0 upon checking exception because they are initialized to 0 anyway
 //        initialize for two number operations
         firstNum = 0;
         secondNum = 0;
@@ -729,7 +727,6 @@ public class calController implements Initializable {
 
     //  This method is responsible for processing the input values for calculation
     private void processValues() {
-//TODO: move setTexts to a different method preferably their respective button click
         if (operation == Operation.CEIL) {
 //            initialize firstNum to 0 if user clicks on ceil on operation
 //            without entering any input
@@ -763,7 +760,6 @@ public class calController implements Initializable {
                 firstNum = 0;
             }
         } else {
-//        TODO: optimize this
 //        used for operation where the symbol is easy to print (addition, subtraction, etc...)
 //        refer to Operation enum to see those covered by this method
 //        also used for those with two operators
@@ -852,7 +848,6 @@ public class calController implements Initializable {
     }
 
     private double computeSummation() {
-//        TODO: optimize this
 //        operation in the expression
         Operation subOperation;
         ArrayList<Double> result = new ArrayList<>();
@@ -874,7 +869,6 @@ public class calController implements Initializable {
             return -1;
         }
 
-//        TODO: error message does not show
         if (lowerBound > upperBound) {
             return -1;
         }
